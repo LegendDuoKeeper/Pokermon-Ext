@@ -644,7 +644,6 @@ config = {extra = {Xmult = 1, Xmult_mod = 0.15}},
           })
         end
       end
-      print("WORKING1")
     end
     if context.joker_main then
       return {
