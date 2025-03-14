@@ -204,7 +204,7 @@ local galvantula={
     end
   end,
   calc_dollar_bonus = function(self, card)
-    return ease_poke_dollars(card, "galvantula", math.min(card.ability.extra.money_limit, card.ability.extra.money + 0), true) 
+    return ease_poke_dollars(card, "galvantula", math.min(card.ability.extra.money_limit, card.ability.extra.money), true) 
   end
 }
 -- Carbink 703
@@ -497,7 +497,7 @@ local lycanroc={
 local lycanrocn={
   name = "lycanrocn", 
   pos = {x = 13, y = 1},
-  config = {extra = {Xmult = 1, Xmult_mod = 0.03, suit = "Clubs"}},
+  config = {extra = {Xmult = 1, Xmult_mod = 0.05, suit = "Clubs"}},
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
     return {vars = {center.ability.extra.Xmult, center.ability.extra.Xmult_mod}}
