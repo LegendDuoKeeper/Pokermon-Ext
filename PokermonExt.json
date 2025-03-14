@@ -2,7 +2,7 @@
 	"id": "Pokermon-Ext",
 	"name": "Pokermon-Ext",
 	"author": ["Team Legend-Burger, see credits"],
-	"description": ["An extension of the", "Pokermon mod by InertSteak"],
+	"description": "hi",
 	"prefix": "poke_ext",
 	"main_file": "pokermonext.lua",
 	"priority": 20,
