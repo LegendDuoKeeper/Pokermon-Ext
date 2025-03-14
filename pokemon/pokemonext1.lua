@@ -204,7 +204,7 @@ local galvantula={
     end
   end,
   calc_dollar_bonus = function(self, card)
-    return ease_poke_dollars(card, "galvantula", math.min(card.ability.extra.money_limit, card.ability.extra.money + card.ability.extra.money), true) 
+    return ease_poke_dollars(card, "galvantula", math.min(card.ability.extra.money_limit, card.ability.extra.money + 0), true) 
   end
 }
 -- Carbink 703
