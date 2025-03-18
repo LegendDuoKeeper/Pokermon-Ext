@@ -9,8 +9,8 @@ default_poke_custom_prefix = "poke_ext"
 -- }):register()
 
 -- SMODS.Atlas({
---   key = "Shinydex2",
---   path = "Shinydex2.png",
+--   key = "shiny_Pokedex2",
+--   path = "shiny_Pokedex2.png",
   
 --   px = 71,
 --   py = 95
@@ -25,28 +25,28 @@ default_poke_custom_prefix = "poke_ext"
 -- }):register()
 
 -- SMODS.Atlas({
---   key = "Shinydex3",
---   path = "Shinydex3.png",
+--   key = "shiny_Pokedex3",
+--   path = "shiny_Pokedex3.png",
   
 --   px = 71,
 --   py = 95
 -- }):register()
 
--- SMODS.Atlas({
---   key = "Pokedex4",
---   path = "Pokedex4.png",
+SMODS.Atlas({
+  key = "Pokedex4",
+  path = "Pokedex4.png",
   
---   px = 71,
---   py = 95
--- }):register()
+  px = 71,
+  py = 95
+}):register()
 
--- SMODS.Atlas({
---   key = "Shinydex4",
---   path = "Shinydex4.png",
+SMODS.Atlas({
+  key = "shiny_Pokedex4",
+  path = "shiny_Pokedex4.png",
   
---   px = 71,
---   py = 95
--- }):register()
+  px = 71,
+  py = 95
+}):register()
 
 SMODS.Atlas({
     key = "Pokedex5",
@@ -57,8 +57,8 @@ SMODS.Atlas({
 }):register()
 
 SMODS.Atlas({
-  key = "Shinydex5",
-  path = "Shinydex5.png",
+  key = "shiny_Pokedex5",
+  path = "shiny_Pokedex5.png",
   
   px = 71,
   py = 95
@@ -73,8 +73,8 @@ SMODS.Atlas({
 }):register()
 
 SMODS.Atlas({
-  key = "Shinydex6",
-  path = "Shinydex6.png",
+  key = "shiny_Pokedex6",
+  path = "shiny_Pokedex6.png",
   
   px = 71,
   py = 95
@@ -89,8 +89,8 @@ SMODS.Atlas({
 }):register()
 
 SMODS.Atlas({
-  key = "Shinydex7",
-  path = "Shinydex7.png",
+  key = "shiny_Pokedex7",
+  path = "shiny_Pokedex7.png",
   
   px = 71,
   py = 95
@@ -105,8 +105,20 @@ SMODS.Atlas({
 -- }):register()
 
 -- SMODS.Atlas({
---   key = "Shinydex8",
---   path = "Shinydex8.png",
+--   key = "shiny_Pokedex8",
+--   path = "shiny_Pokedex8.png",
+
+-- SMODS.Atlas({
+--   key = "Pokedex9",
+--   path = "Pokedex9.png",
+  
+--   px = 71,
+--   py = 95
+-- }):register()
+
+-- SMODS.Atlas({
+--   key = "shiny_Pokedex9",
+--   path = "shiny_Pokedex9.png",
   
 --   px = 71,
 --   py = 95
@@ -121,8 +133,8 @@ SMODS.Atlas({
 }):register()
 
 SMODS.Atlas({
-  key = "ShinyMegas",
-  path = "ShinyMegas.png",
+  key = "shiny_Megas",
+  path = "shiny_Megas.png",
   
   px = 71,
   py = 95
