@@ -140,6 +140,22 @@ SMODS.Atlas({
   py = 95
 }):register()
 
+SMODS.Atlas({
+  key = "Regional",
+  path = "Regional.png",
+  
+  px = 71,
+  py = 95
+}):register()
+
+SMODS.Atlas({
+  key = "shiny_Regional",
+  path = "shiny_Regional.png",
+  
+  px = 71,
+  py = 95
+}):register()
+
 --Required by the pokemon family function (right click on a pokemon joker)
 table.insert(family, {"petilil", "lilligant"})
 table.insert(family, {"joltik", "galvantula"})
@@ -148,6 +164,8 @@ table.insert(family, {"rockruff", "lycanroc", "lycanrocn", "lycanrocd"})
 table.insert(family, {"fomantis", "lurantis"})
 
 table.insert(family, {"carbink"})
+
+table.insert(family, {"a_vulpix", "a_ninetales"})
 
 -- Get mod path and load other files
 mod_dir = ''..SMODS.current_mod.path
