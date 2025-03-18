@@ -128,7 +128,25 @@ return {
                   "{C:inactive}(Currently: {X:red,C:white}X#1#{}{C:inactive} Mult){}"
                 }
             },
-
+            j_poke_ext_a_vulpix = {
+                name = 'Vulpix',
+                text = {
+                    "{C:green}#1# in #2#{} chance for",
+                    "{C:attention}each played 9{} to create",
+                    "an {C:spectral}Aura{} when scored",
+                    "{C:inactive,s:0.8}(Must have room)",
+                    "{C:inactive,s:0.8}(Evolves with an {C:attention,s:0.8}Ice Stone{C:inactive,s:0.8} card)"
+                } 
+            },
+            j_poke_ext_a_ninetales = {
+                name = 'Ninetales',
+                text = {
+                    "{C:green}#1# in #2#{} chance for the {C:attention}first{}",
+                    "{C:attention}played 9{} every hand to",
+                    "create a permanent {C:dark_edition}Polychrome{}",
+                    "copy and draw it to {C:attention}hand{}"
+                } 
+            },
         },
     }
 }
