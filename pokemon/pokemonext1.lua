@@ -394,7 +394,7 @@ local rockruff={
       end
     return {vars = {center.ability.extra.mult, center.ability.extra.rounds, center.ability.extra.clubs, localize(center.ability.extra.suit, 'suits_singular')}}
   end,
-  rarity = 1, 
+  rarity = 2, 
   cost = 4, 
   stage = "Basic", 
   ptype = "Earth",
@@ -664,11 +664,53 @@ config = {extra = {Xmult = 1, Xmult_mod = 0.15}},
     end
   end
 }
+-- --Darkrai
+-- local darkrai={
+--   name = "darkrai",
+--   pos = {x = 8, y = 8},
+--   soul_pos = { x = 9, y = 8},
+--   config = {extra = {}},
+--   loc_vars = function(self, info_queue, center)
+--     type_tooltip(self, info_queue, center)
+--     return {vars = {}}
+--   end,
+--   rarity = 4,
+--   cost = 20,
+--   stage = "Legendary",
+--   ptype = "Dark",
+--   atlas = "Pokedex4",
+--   perishable_compat = false,
+--   blueprint_compat = false,
+--   eternal_compat = false,
+--   calculate = function(self, card, context)
+--     if context.selling_self then
+--       if G.shop_vouchers and G.shop_vouchers.cards then 
+--       local blank_in_shop = false
+--         if not blank_in_shop then
+--           for i = 1, #G.shop_vouchers.cards do
+--             if G.shop_vouchers.cards[i].ability.name == "Blank" then
+--               blank_in_shop = true
+--             end
+--           end
+--           if not G.GAME.used_vouchers.v_blank and not blank_in_shop then
+--           G.shop_vouchers.config.card_limit = G.shop_vouchers.config.card_limit + 1
+--           local _card = Card(G.shop_vouchers.T.x + G.shop_vouchers.T.w/2,
+--           G.shop_vouchers.T.y, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS['v_blank'],{bypass_discovery_center = true, bypass_discovery_ui = true})
+--           create_shop_card_ui(_card, 'Voucher', G.shop_vouchers)
+--           _card:start_materialize()
+--           G.shop_vouchers:emplace(_card)
+--           added = true
+--           end
+--         end
+--       end
+--     end
+--   end,
+-- }
 
 return {name = "Various Additional Jokers",
+-- list = {petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis, darkrai,},
+-- }
+
 list = {petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis,},
 }
-
--- list = {petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis,},
--- }
 
