@@ -192,11 +192,14 @@ local galvantula={
           })) 
          end
       end
+      if card.ability.extra.money > card.ability.extra.money_limit then
+        card.ability.extra.money = card.ability.extra.money_limit
+      end
     end
     if context.cardarea == G.jokers and context.scoring_hand then
       if context.joker_main then
         return {
-          message = "discharge",
+          message = "Discharge!",
           colour = G.C.BLACK,
           mult = card.ability.extra.mult
         }
