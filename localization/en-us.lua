@@ -49,11 +49,11 @@ return {
             j_poke_ext_carbink = {
                 name = 'Carbink',
                 text = {
-                    "{C:green}#1# in 500{} chance to",
-                    "{C:mult}self destruct{} at end of round",
+                    "{C:green}Percent Chance{}",
+                    "Chance to {C:mult}self destruct{} at end of round",
                     "Changes suit of leftmost scoring card",
                     "in {C:attention}first hand{} of round to {C:diamonds}Diamond{}",
-                    "{C:inactive,s:0.8}(Chance based off of{C:diamonds,s:0.8} Diamonds{C:inactive,s:0.8} in deck)",
+                    "{C:inactive,s:0.8}(Chance is equal to{C:diamonds,s:0.8} Diamonds{C:inactive,s:0.8} in deck / #2#)",
                 }
             },
             j_poke_ext_diancie = {
@@ -135,7 +135,7 @@ return {
                     "{C:attention}each played 9{} to create",
                     "an {C:spectral}Aura{} when scored",
                     "{C:inactive,s:0.8}(Must have room)",
-                    "{C:inactive,s:0.8}(Evolves with an {C:attention,s:0.8}Ice Stone{C:inactive,s:0.8} card)"
+                    "{C:inactive,s:0.8}(Evolves with an {C:attention,s:0.8}Ice Stone{C:inactive,s:0.8})"
                 } 
             },
             j_poke_ext_a_ninetales = {
@@ -146,6 +146,18 @@ return {
                     "create a permanent {C:dark_edition}Polychrome{}",
                     "copy and draw it to {C:attention}hand{}"
                 } 
+            },
+        },
+
+        Voucher = {
+            v_poke_ext_baddreams = {
+                name = "Bad Dreams",
+                text = {
+                    "Replaces Edition of a",
+                    "random playing card in deck",
+                    "with Negative, Death Tarot",
+                    "cards no longer spawn"
+                },
             },
         },
     }
