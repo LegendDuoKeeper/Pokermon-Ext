@@ -181,7 +181,7 @@ local galvantula={
         if v.config.center == G.P_CENTERS.m_gold and not v.debuff then 
           v.vampired = true
             card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod 
-            card.ability.extra.money = card.ability.extra.money + card.ability.extra.money_mod 
+            card.ability.extra.money = math.min((card.ability.extra.money + card.ability.extra.money_mod), card.ability.extra.money_limit)
           v:set_ability(G.P_CENTERS.c_base, nil, true)
           G.E_MANAGER:add_event(Event({
               func = function()
@@ -191,9 +191,6 @@ local galvantula={
               end
           })) 
          end
-      end
-      if card.ability.extra.money > card.ability.extra.money_limit then
-        card.ability.extra.money = card.ability.extra.money_limit
       end
     end
     if context.cardarea == G.jokers and context.scoring_hand then
