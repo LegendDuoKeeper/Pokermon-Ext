@@ -162,7 +162,7 @@ local joltik={
 local galvantula={
   name = "galvantula", 
   pos = {x = 4, y = 7},
-  config = {extra = {mult = 0, mult_mod = 6, money = 0, money_mod = 2, money_limit = 25}},
+  config = {extra = {mult = 0, mult_mod = 6, money = 0, money_mod = 1, money_limit = 25}},
   loc_vars = function(self, info_queue, card)
     type_tooltip(self, info_queue, card)
     return {vars = {card.ability.extra.mult, card.ability.extra.mult_mod, card.ability.extra.money, card.ability.extra.money_mod, card.ability.extra.money_limit}}
@@ -210,23 +210,25 @@ local galvantula={
 -- Carbink 703
 local carbink={
   name = "carbink", 
-
   no_pool_flag="carbanana_mutate",
   pos = {x = 11, y = 3},
-  config = {extra = {diamonds = 0, delete = false}},
+  config = {extra = {diamonds = 0, odds = 450, percent = 0, delete = false, rolled = false}},
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
     local diamonds = 0
-      if G.playing_cards then
-        for k, v in pairs(G.playing_cards) do
-          if v:is_suit("Diamonds") then
-            diamonds = diamonds + 1
-            center.ability.extra.diamonds = diamonds
-          end
+    if G.playing_cards then
+      for k, v in pairs(G.playing_cards) do
+        if v:is_suit("Diamonds") then
+          diamonds = diamonds + 1
+          center.ability.extra.diamonds = diamonds
         end
       end
-    return {vars = {center.ability.extra.diamonds}}
-    --info_queue[#info_queue+1] = G.P_CENTERS.diamonds
+      if center.ability.extra.diamonds > 0 then
+        center.ability.extra.percent = math.min((math.floor(center.ability.extra.diamonds / center.ability.extra.odds * 1000)) / 10, 100)
+      end
+    end
+    info_queue[#info_queue+1] = {key = 'percent_chance', set = 'Other', specific_vars = {center.ability.extra.percent}}
+    return {vars = {1, center.ability.extra.odds}}
   end,
   rarity = 1, 
   cost = 6, 
@@ -252,7 +254,8 @@ local carbink={
         })) 
       end
     end
-    if context.end_of_round then
+    if context.end_of_round and card.ability.extra.rolled == false then
+      card.ability.extra.rolled = true
       local diamonds = 0
       for k,v in ipairs(G.playing_cards) do
           if v:is_suit("Diamonds") then
@@ -260,39 +263,46 @@ local carbink={
               card.ability.extra.diamonds = diamonds
           end
       end
-      if pseudorandom("carbanana") < ((G.GAME.probabilities.normal * diamonds) / 500) and card.ability.extra.delete == false then
-        card.ability.extra.delete = true
-        G.GAME.pool_flags.carbanana_mutate = true
-        G.E_MANAGER:add_event(Event({
-          func = function()
-              play_sound('tarot1')
-              card.T.r = -0.2
-              card:juice_up(0.3, 0.4)
-              card.states.drag.is = true
-              card.children.center.pinch.x = true
-              -- This part destroys the card.
-              G.E_MANAGER:add_event(Event({
-                  trigger = 'after',
-                  delay = 0.3,
-                  blockable = false,
-                  func = function()
-                      G.jokers:remove_card(card)
-                      card:remove()
-                      card = nil
-                      return true;
-                  end
-              }))
-              return true
+        local mutate_chance = (card.ability.extra.diamonds / card.ability.extra.odds)
+        local carbrandom = (pseudorandom("carbanana"))
+        print(carbrandom)
+        card.ability.extra.delete = false
+        if carbrandom < mutate_chance then
+          card.ability.extra.delete = true
+          G.GAME.pool_flags.carbanana_mutate = true
+          G.E_MANAGER:add_event(Event({
+            func = function()
+                play_sound('tarot1')
+                card.T.r = -0.2
+                card:juice_up(0.3, 0.4)
+                card.states.drag.is = true
+                card.children.center.pinch.x = true
+                -- This part destroys the card.
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.3,
+                    blockable = false,
+                    func = function()
+                        G.jokers:remove_card(card)
+                        card:remove()
+                        card = nil
+                        return true;
+                    end
+                }))
+                return true
+            end
+          }))
+          if context.cardarea == G.jokers then
+          return {
+            message = "MUTATE!",
+            colour = G.C.CHIPS,
+            card = card 
+          }
           end
-        }))
-        if context.cardarea == G.jokers then
-        return {
-          message = "MUTATE!",
-          colour = G.C.CHIPS,
-          card = card 
-        }
         end
-      end
+    end
+    if context.setting_blind then
+      card.ability.extra.rolled = false
     end
   end
 
@@ -455,8 +465,7 @@ local lycanroc={
           card.ability.extra.club_count = card.ability.extra.club_count + 1
         end
       end
-      --Uncomment lines 459 and 492 to re-enable the first hand of round clause
-      --if G.GAME.current_round.hands_played == 0 then
+      --if G.GAME.current_round.hands_played == 0 then     (Old first hand of round clause)
         if card.ability.extra.club_count > 2 then
           if pseudorandom('lycanroc') < G.GAME.probabilities.normal/card.ability.extra.odds then
             for k, v in ipairs(context.scoring_hand) do
@@ -489,7 +498,7 @@ local lycanroc={
           end
           card.ability.extra.club_count = 0
         end
-      --end
+      --end (Matching end for above clause)
     end
   end
 }
@@ -664,53 +673,53 @@ config = {extra = {Xmult = 1, Xmult_mod = 0.15}},
     end
   end
 }
---Darkrai
-local darkrai={
-  name = "darkrai",
-  pos = {x = 8, y = 8},
-  soul_pos = { x = 9, y = 8},
-  config = {extra = {}},
-  loc_vars = function(self, info_queue, center)
-    type_tooltip(self, info_queue, center)
-    return {vars = {}}
-  end,
-  rarity = 4,
-  cost = 20,
-  stage = "Legendary",
-  ptype = "Dark",
-  atlas = "Pokedex4",
-  perishable_compat = false,
-  blueprint_compat = false,
-  eternal_compat = false,
-  calculate = function(self, card, context)
-    if context.selling_self then
-      if G.shop_vouchers and G.shop_vouchers.cards then 
-      local blank_in_shop = false
-        if not blank_in_shop then
-          for i = 1, #G.shop_vouchers.cards do
-            if G.shop_vouchers.cards[i].ability.name == "Blank" then
-              blank_in_shop = true
-            end
-          end
-          if not G.GAME.used_vouchers.v_blank and not blank_in_shop then
-          G.shop_vouchers.config.card_limit = G.shop_vouchers.config.card_limit + 1
-          local _card = Card(G.shop_vouchers.T.x + G.shop_vouchers.T.w/2,
-          G.shop_vouchers.T.y, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS['v_blank'],{bypass_discovery_center = true, bypass_discovery_ui = true})
-          create_shop_card_ui(_card, 'Voucher', G.shop_vouchers)
-          _card:start_materialize()
-          G.shop_vouchers:emplace(_card)
-          added = true
-          end
-        end
-      end
-    end
-  end,
-}
+-- --Darkrai
+-- local darkrai={
+--   name = "darkrai",
+--   pos = {x = 8, y = 8},
+--   soul_pos = { x = 9, y = 8},
+--   config = {extra = {}},
+--   loc_vars = function(self, info_queue, center)
+--     type_tooltip(self, info_queue, center)
+--     return {vars = {}}
+--   end,
+--   rarity = 4,
+--   cost = 20,
+--   stage = "Legendary",
+--   ptype = "Dark",
+--   atlas = "Pokedex4",
+--   perishable_compat = false,
+--   blueprint_compat = false,
+--   eternal_compat = false,
+--   calculate = function(self, card, context)
+--     if context.selling_self then
+--       if G.shop_vouchers and G.shop_vouchers.cards then 
+--       local blank_in_shop = false
+--         if not blank_in_shop then
+--           for i = 1, #G.shop_vouchers.cards do
+--             if G.shop_vouchers.cards[i].ability.name == "Blank" then
+--               blank_in_shop = true
+--             end
+--           end
+--           if not G.GAME.used_vouchers.v_blank and not blank_in_shop then
+--           G.shop_vouchers.config.card_limit = G.shop_vouchers.config.card_limit + 1
+--           local _card = Card(G.shop_vouchers.T.x + G.shop_vouchers.T.w/2,
+--           G.shop_vouchers.T.y, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS['v_blank'],{bypass_discovery_center = true, bypass_discovery_ui = true})
+--           create_shop_card_ui(_card, 'Voucher', G.shop_vouchers)
+--           _card:start_materialize()
+--           G.shop_vouchers:emplace(_card)
+--           added = true
+--           end
+--         end
+--       end
+--     end
+--   end,
+-- }
 
 return {name = "Various Additional Jokers",
-list = {petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis, darkrai,},
-}
-
--- list = {petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis,},
+-- list = {petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis, darkrai,},
 -- }
+
+list = {petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis,},
+}
 
