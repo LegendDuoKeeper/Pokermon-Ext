@@ -162,7 +162,7 @@ local joltik={
 local galvantula={
   name = "galvantula", 
   pos = {x = 4, y = 7},
-  config = {extra = {mult = 0, mult_mod = 6, money = 0, money_mod = 2, money_limit = 25}},
+  config = {extra = {mult = 0, mult_mod = 6, money = 0, money_mod = 1, money_limit = 25}},
   loc_vars = function(self, info_queue, card)
     type_tooltip(self, info_queue, card)
     return {vars = {card.ability.extra.mult, card.ability.extra.mult_mod, card.ability.extra.money, card.ability.extra.money_mod, card.ability.extra.money_limit}}
