@@ -87,7 +87,7 @@ return {
                 name = 'Lycanroc',
                 text = {
                     -- "If {C:attention}first hand{} of round contains at least {C:attention}3{} scoring {C:clubs}Clubs{},",
-                    "If {C:attention}played hand{} contains at least {C:attention}3{} scoring {C:clubs}Clubs{},",
+                    "If {C:attention}played hand{} contains at least {C:attention}2{} scoring {C:clubs}Clubs{},",
                     "{C:green}#1# in #2#{} chance to add a permanent copy of a random",
                     "scored {C:clubs}Club{} to deck and draw it to {C:attention}hand{}"
                 }
@@ -147,7 +147,16 @@ return {
                     "copy and draw it to {C:attention}hand{}"
                 } 
             },
+            j_poke_ext_darkrai = {
+                name = "Darkrai",
+                text = {
+                "Creates a{C:dark_edition} Bad Dreams{}",
+                "{C:attention}voucher{} in the shop",
+                "when sold"
+                }
+            },
         },
+        
 
         Voucher = {
             v_poke_ext_baddreams = {
