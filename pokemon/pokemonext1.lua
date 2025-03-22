@@ -402,7 +402,7 @@ local rockruff={
       end
     return {vars = {center.ability.extra.mult, center.ability.extra.rounds, center.ability.extra.clubs, localize(center.ability.extra.suit, 'suits_singular')}}
   end,
-  rarity = 2, 
+  rarity = 1, 
   cost = 4, 
   stage = "Basic", 
   ptype = "Earth",
@@ -442,7 +442,7 @@ local rockruff={
 local lycanroc={
   name = "lycanroc", 
   pos = {x = 12, y = 1},
-  config = {extra = {suit = "Clubs", odds = 3, club_count = 0}},
+  config = {extra = {suit = "Clubs", odds = 2, club_count = 0}},
     loc_vars = function(self, info_queue, center)
       type_tooltip(self, info_queue, center)
       return {vars = {G.GAME and G.GAME.probabilities.normal or 1, center.ability.extra.odds}}
@@ -464,10 +464,10 @@ local lycanroc={
         end
       end
       --if G.GAME.current_round.hands_played == 0 then     (Old first hand of round clause)
-        if card.ability.extra.club_count > 2 then
+        if card.ability.extra.club_count > 1 then
           if pseudorandom('lycanroc') < G.GAME.probabilities.normal/card.ability.extra.odds then
             for k, v in ipairs(context.scoring_hand) do
-              if v:is_suit("Clubs") and card.ability.extra.club_count > 2 then 
+              if v:is_suit("Clubs") and card.ability.extra.club_count > 1 then 
                 card.ability.extra.club_count = 0
                 local target = pseudorandom_element(context.scoring_hand, pseudoseed('lycanroc_copy'))
                 local copy = copy_card(target, nil, nil, G.playing_card)
