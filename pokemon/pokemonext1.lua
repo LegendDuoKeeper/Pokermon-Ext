@@ -212,7 +212,7 @@ local carbink={
   name = "carbink", 
   no_pool_flag="carbanana_mutate",
   pos = {x = 11, y = 3},
-  config = {extra = {diamonds = 0, odds = 450, percent = 0, delete = false, rolled = false}},
+  config = {extra = {diamonds = 0, odds = 350, percent = 0, delete = false, rolled = false}},
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
     local diamonds = 0
@@ -224,7 +224,7 @@ local carbink={
         end
       end
       if center.ability.extra.diamonds > 0 then
-        center.ability.extra.percent = math.min((math.floor(center.ability.extra.diamonds / center.ability.extra.odds * 1000)) / 10, 100)
+        center.ability.extra.percent = math.min((math.floor(center.ability.extra.diamonds / center.ability.extra.odds * 10000)) / 100, 100)
       end
     end
     info_queue[#info_queue+1] = {key = 'percent_chance', set = 'Other', specific_vars = {center.ability.extra.percent}}
@@ -265,7 +265,6 @@ local carbink={
       end
         local mutate_chance = (card.ability.extra.diamonds / card.ability.extra.odds)
         local carbrandom = (pseudorandom("carbanana"))
-        print(carbrandom)
         card.ability.extra.delete = false
         if carbrandom < mutate_chance then
           card.ability.extra.delete = true
@@ -310,7 +309,6 @@ local carbink={
 -- Diancie 719
 local diancie={
   name = "diancie", 
-
   yes_pool_flag="carbanana_mutate",
   pos = {x = 0, y = 6},
   soul_pos = { x = 1, y = 6},
@@ -676,6 +674,7 @@ config = {extra = {Xmult = 1, Xmult_mod = 0.15}},
 -- --Darkrai
 -- local darkrai={
 --   name = "darkrai",
+--   no_pool_flag="darkrai_sold",
 --   pos = {x = 8, y = 8},
 --   soul_pos = { x = 9, y = 8},
 --   config = {extra = {}},
@@ -693,22 +692,25 @@ config = {extra = {Xmult = 1, Xmult_mod = 0.15}},
 --   eternal_compat = false,
 --   calculate = function(self, card, context)
 --     if context.selling_self then
+--       if G.GAME.pool_flags.darkrai_sold == false then
+--         G.GAME.pool_flags.darkrai_sold = true
+--       end
 --       if G.shop_vouchers and G.shop_vouchers.cards then 
---       local blank_in_shop = false
---         if not blank_in_shop then
+--       local baddreams_in_shop = false
+--         if not baddreams_in_shop then
 --           for i = 1, #G.shop_vouchers.cards do
---             if G.shop_vouchers.cards[i].ability.name == "Blank" then
---               blank_in_shop = true
+--             if G.shop_vouchers.cards[i].ability.name == "baddreams" then
+--               baddreams_in_shop = true
 --             end
 --           end
---           if not G.GAME.used_vouchers.v_blank and not blank_in_shop then
---           G.shop_vouchers.config.card_limit = G.shop_vouchers.config.card_limit + 1
---           local _card = Card(G.shop_vouchers.T.x + G.shop_vouchers.T.w/2,
---           G.shop_vouchers.T.y, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS['v_blank'],{bypass_discovery_center = true, bypass_discovery_ui = true})
---           create_shop_card_ui(_card, 'Voucher', G.shop_vouchers)
---           _card:start_materialize()
---           G.shop_vouchers:emplace(_card)
---           added = true
+--           if not G.GAME.used_vouchers.v_poke_ext_baddreams and not baddreams_in_shop then
+--             G.shop_vouchers.config.card_limit = G.shop_vouchers.config.card_limit + 1
+--             local _card = Card(G.shop_vouchers.T.x + G.shop_vouchers.T.w/2,
+--             G.shop_vouchers.T.y, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS['v_poke_ext_baddreams'],{bypass_discovery_center = true, bypass_discovery_ui = true})
+--             create_shop_card_ui(_card, 'Voucher', G.shop_vouchers)
+--             _card:start_materialize()
+--             G.shop_vouchers:emplace(_card)
+--             added = true
 --           end
 --         end
 --       end
