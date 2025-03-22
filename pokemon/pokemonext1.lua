@@ -466,32 +466,36 @@ local lycanroc={
       --if G.GAME.current_round.hands_played == 0 then     (Old first hand of round clause)
         if card.ability.extra.club_count > 1 then
           if pseudorandom('lycanroc') < G.GAME.probabilities.normal/card.ability.extra.odds then
+            local targets = {}
             for k, v in ipairs(context.scoring_hand) do
-              if v:is_suit("Clubs") and card.ability.extra.club_count > 1 then 
-                card.ability.extra.club_count = 0
-                local target = pseudorandom_element(context.scoring_hand, pseudoseed('lycanroc_copy'))
-                local copy = copy_card(target, nil, nil, G.playing_card)
-                copy:add_to_deck()
-                G.deck.config.card_limit = G.deck.config.card_limit + 1
-                table.insert(G.playing_cards, copy)
-                -- If you want it to not place the duplicated card into the hand after duping and put it into the deck instead,
-                -- in line 206, change from G.hand:emplace(copy) to G.deck:emplace(copy)
-                G.hand:emplace(copy)
-                copy.states.visible = nil
-                G.E_MANAGER:add_event(Event({
-                  func = function()
-                  copy:start_materialize()
-                  return true
-                end
-                }))
-                playing_card_joker_effects({copy})
-                return {
-                    message = localize('k_copied_ex'),
-                    colour = G.C.CHIPS,
-                    card = card,
-                    playing_cards_created = {true}
-                }
+              if v:is_suit("Clubs") then
+                table.insert(targets, v)
               end
+            end
+            if card.ability.extra.club_count > 1 then 
+              card.ability.extra.club_count = 0
+              local target = pseudorandom_element(targets, pseudoseed('lycanroc_copy'))
+              local copy = copy_card(target, nil, nil, G.playing_card)
+              copy:add_to_deck()
+              G.deck.config.card_limit = G.deck.config.card_limit + 1
+              table.insert(G.playing_cards, copy)
+              -- If you want it to not place the duplicated card into the hand after duping and put it into the deck instead,
+              -- in line 206, change from G.hand:emplace(copy) to G.deck:emplace(copy)
+              G.hand:emplace(copy)
+              copy.states.visible = nil
+              G.E_MANAGER:add_event(Event({
+                func = function()
+                copy:start_materialize()
+                return true
+              end
+              }))
+              playing_card_joker_effects({copy})
+              return {
+                  message = localize('k_copied_ex'),
+                  colour = G.C.CHIPS,
+                  card = card,
+                  playing_cards_created = {true}
+              }
             end
           end
           card.ability.extra.club_count = 0
