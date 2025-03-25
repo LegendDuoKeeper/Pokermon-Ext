@@ -39,7 +39,7 @@ local a_vulpix={
                 end
             end
         end
-        return item_evo(self, card, context, "j_poke_a_ninetales")
+        return item_evo(self, card, context, "j_poke_ext_a_ninetales")
     end
 }
 

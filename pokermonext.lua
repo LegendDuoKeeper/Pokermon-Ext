@@ -167,6 +167,8 @@ table.insert(family, {"carbink"})
 
 table.insert(family, {"a_vulpix", "a_ninetales"})
 
+table.insert(family, {"shaymin_land", "shaymin_sky"})
+
 -- Get mod path and load other files
 mod_dir = ''..SMODS.current_mod.path
 if (SMODS.Mods["Pokermon"] or {}).can_load then

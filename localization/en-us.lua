@@ -1,6 +1,25 @@
 return {
     descriptions = {
         Joker = {
+            j_poke_ext_shaymin_land = {
+                name = "Shaymin (Land Forme)",
+                text = {
+                  "Gains {X:red,C:white}X{} Mult equal to {X:red,C:white}X#1#{}",
+                  "the amount of Chips each scored",
+                  "{C:attention}Enhanced card{} would score.",
+                  "Removes card {C:attention}enhancements{}.",
+                  "{C:inactive}(Currently {X:red,C:white}X#2#{C:inactive} Mult)",
+                  "{C:inactive,s:0.8}(Transforms at {C:attention,s:0.8}#3#{C:inactive,s:0.8} / #4# removed enhancements)"
+                }
+            },
+            j_poke_ext_shaymin_sky = {
+                name = "Shaymin (Sky Forme)",
+                text = {
+                  "Gives {X:red,C:white}X#1#{} Mult.",
+                  "Repeat this effect when",
+                  "an {C:attention}Enhanced card{} is scored."
+                }
+            },
             j_poke_ext_petilil = {
                 name = "Petilil",
                 text = {
