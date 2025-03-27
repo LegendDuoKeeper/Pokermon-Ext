@@ -156,13 +156,14 @@ SMODS.Atlas({
   py = 95
 }):register()
 
-SMODS.Atlas({
-  key = "vouchers",
-  path = "vouchers.png",
+-- -- Only Used for Darkrai
+-- SMODS.Atlas({
+--   key = "vouchers",
+--   path = "vouchers.png",
   
-  px = 71,
-  py = 95
-}):register()
+--   px = 71,
+--   py = 95
+-- }):register()
 
 SMODS.Atlas({
   key = "honey",
