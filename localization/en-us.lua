@@ -93,6 +93,25 @@ return {
                     "give {X:red,C:white}X#1#{} Mult and {C:gold}$1{} when scored",
                 }
             },
+            j_poke_ext_cutiefly = {
+                name = 'Cutiefly',
+                text = {
+                    "When hand is played, {C:green}#3# in #4#{} chance",
+                    "to make a random {C:item}Item{} card",
+                    "Chance increases by 1 for each",
+                    "{X:grass,C:white}Grass{} joker you have",
+                    "{C:inactive,s:0.8}(Evolves after {C:attention,s:0.8}#1#{C:inactive,s:0.8} rounds)",
+                }
+            },
+            j_poke_ext_ribombee = {
+                name = 'Ribombee',
+                text = {
+                    "While you don't have {C:attention}Honey{}",
+                    "After #1# rounds create a {C:attention}Honey{} card",
+                    "Counter decreases an additional time",
+                    "for each {X:grass,C:white}Grass{} joker you have",
+                }
+            },
             j_poke_ext_rockruff = {
                 name = 'Rockruff',
                 text = {
@@ -173,6 +192,17 @@ return {
                 "{C:attention}voucher{} in the shop",
                 "when sold"
                 }
+            },
+        },
+
+        Spectral = {
+            c_poke_ext_honey = {
+                name = "Honey",
+                text = {
+                    "Gives +1 Shop Slot while held",
+                    "Use to create a",
+                    "{C:attention}Shiny{} tag",
+                },
             },
         },
         
