@@ -1,7 +1,85 @@
+-- Shaymin-Land 492
+local shaymin_land={
+  name = "shaymin_land",
+  poke_custom_prefix = "poke_ext",
+  pos = {x = 10, y = 8},
+  soul_pos = {x = 11, y = 8},
+  config = { extra = { Xmult = 1, eaten = 0, Xmult_mod = 0.005 }, evo_req = 20 },
+  rarity = 4,
+  cost = 20,
+  stage = "Legendary",
+  ptype = "Grass",
+  atlas = "Pokedex4",
+  blueprint_compat = true,
+  loc_vars = function(self, info_queue, center)
+    type_tooltip(self, info_queue, center)
+    return { vars = {center.ability.extra.Xmult_mod, center.ability.extra.Xmult, center.ability.extra.eaten, center.ability.evo_req }}
+  end,
+  calculate = function(self, card, context)
+    if context.cardarea == G.jokers and context.before and not context.blueprint then
+      for k, v in ipairs(context.scoring_hand) do
+        if v.config.center ~= G.P_CENTERS.c_base and not v.debuff and not v.vampired then
+          card.ability.extra.Xmult = card.ability.extra.Xmult + ((v.ability.bonus + v.base.nominal) * card.ability.extra.Xmult_mod)
+          card.ability.extra.eaten = card.ability.extra.eaten + 1
+          v.vampired = true
+          v:set_ability(G.P_CENTERS.c_base, nil, true)
+          G.E_MANAGER:add_event(Event({
+            func = function()
+              v:juice_up()
+              v.vampired = nil
+              return true
+            end
+          }))
+        end
+      end
+    elseif context.joker_main and card.ability.extra.Xmult > 1.0 then
+      return {
+        message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.Xmult } },
+        colour = G.C.XMULT,
+        Xmult_mod = card.ability.extra.Xmult
+      }
+    end
+    return scaling_evo(self, card, context, "j_poke_ext_shaymin_sky", card.ability.extra.eaten, self.config.evo_req)
+  end
+}
+-- Shaymin-Sky 492
+local shaymin_sky={
+  name = "shaymin_sky",
+  poke_custom_prefix = "poke_ext",
+  pos = {x = 9, y = 10},
+  soul_pos = {x = 3, y = 10},
+  config = { extra = { Xmult = 1.5, Xmult_mod = 0.005 }},
+  rarity = 4,
+  cost = 20,
+  stage = "Legendary",
+  ptype = "Grass",
+  atlas = "Pokedex4",
+  blueprint_compat = true,
+  loc_vars = function(self, info_queue, center)
+    type_tooltip(self, info_queue, center)
+    return {vars = {center.ability.extra.Xmult}}
+  end,
+  calculate = function(self, card, context)
+    if context.cardarea == G.play and context.individual and card.ability.extra.Xmult > 1.0 then
+      if context.other_card.config.center ~= G.P_CENTERS.c_base and not context.other_card.debuffed then
+        return {
+          message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.Xmult } },
+          colour = G.C.XMULT,
+          Xmult_mod = card.ability.extra.Xmult
+        }
+      end
+    elseif context.joker_main and card.ability.extra.Xmult > 1.0 then
+      return {
+        message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.Xmult } },
+        colour = G.C.XMULT,
+        Xmult_mod = card.ability.extra.Xmult
+      }
+    end
+  end
+}
 -- Petilil 548
 local petilil={
   name = "petilil", 
-  poke_custom_prefix = "poke_ext",
   pos = {x = 12, y = 3},
   config = {extra = {chips = 5, mult = 1, money = 2, suit = "Spades"}},
   loc_vars = function(self, info_queue, center)
@@ -570,6 +648,7 @@ local lycanrocd={
 -- Fomantis 753
 local fomantis={
   name = "fomantis",
+  poke_custom_prefix = "poke_ext",
   pos = {x = 9, y = 2},
   config = {extra = {card_threshold = 12, cards_scored = 0, rounds = 4, }},
    loc_vars = function(self, info_queue, center)
@@ -616,9 +695,10 @@ local fomantis={
  }
 -- Lurantis 754
 local lurantis={
-name = "lurantis",
-pos = {x = 10, y = 2},
-config = {extra = {Xmult = 1, Xmult_mod = 0.15}},
+  name = "lurantis",
+  poke_custom_prefix = "poke_ext",
+  pos = {x = 10, y = 2},
+  config = {extra = {Xmult = 1, Xmult_mod = 0.15}},
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
     return {vars = { center.ability.extra.Xmult, center.ability.extra.Xmult_mod }}
@@ -726,6 +806,6 @@ return {name = "Various Additional Jokers",
 -- list = {petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis, darkrai,},
 -- }
 
-list = {petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis,},
+list = {shaymin_land, shaymin_sky, petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis,},
 }
 
