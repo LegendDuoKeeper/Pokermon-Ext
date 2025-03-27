@@ -462,6 +462,89 @@ local mega_diancie={
     end
   end
 }
+-- Cutiefly 742
+local cutiefly={
+  name = "cutiefly",
+  pos = {x = 9, y = 1},
+  config = {extra = {rounds = 3, grass = 0, odds = 1, odds2 = 10}},
+  loc_vars = function(self, info_queue, center)
+    type_tooltip(self, info_queue, center)
+    if G.playing_cards then
+      center.ability.extra.grass = #find_pokemon_type("Grass")
+      center.ability.extra.odds = math.max(1, G.GAME.probabilities.normal + center.ability.extra.grass)
+    end
+    return {vars = {center.ability.extra.rounds, center.ability.extra.grass, center.ability.extra.odds, center.ability.extra.odds2}}
+  end,
+  rarity = 2,
+  cost = 6,
+  stage = "Basic",
+  ptype = "Fairy",
+  atlas = "Pokedex7",
+  perishable_compat = true,
+  blueprint_compat = true,
+  eternal_compat = true,
+  calculate = function(self, card, context)
+    if context.cardarea == G.jokers and context.scoring_hand then
+      if context.joker_main then
+        if pseudorandom('cutiefly') < card.ability.extra.odds/card.ability.extra.odds2 then
+          if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+            local _card = create_card('Item', G.consumeables, nil, nil, nil, nil, nil)
+            _card:add_to_deck()
+            G.consumeables:emplace(_card)
+            card_eval_status_text(_card, 'extra', nil, nil, nil, {message = localize('poke_plus_pokeitem'), colour = G.ARGS.LOC_COLOURS.item})
+          end
+        end
+      end
+    end
+    return level_evo(self, card, context, "j_poke_ext_ribombee")
+  end,
+}
+-- Ribombee 743
+local ribombee={
+  name = "ribombee",
+  pos = {x = 10, y = 1},
+  config = {extra = {rounds_left = 12, triggered = false}},
+  loc_vars = function(self, info_queue, center)
+    type_tooltip(self, info_queue, center)
+    return {vars = {center.ability.extra.rounds_left}}
+  end,
+  rarity = "poke_safari",
+  cost = 8,
+  stage = "One",
+  ptype = "Fairy",
+  atlas = "Pokedex7",
+  perishable_compat = false,
+  blueprint_compat = false,
+  eternal_compat = true,
+  calculate = function(self, card, context)
+    local honey = 0
+    if context.end_of_round and card.ability.extra.triggered == false then
+      card.ability.extra.triggered = true
+      for i, v in ipairs(G.consumeables.cards) do
+        print(v.config.center.key)
+        if v.config.center.key == "c_poke_ext_honey" then
+          honey = honey + 1
+        end
+      end
+      if honey == 0 then
+        local grass = #find_pokemon_type("Grass")
+        card.ability.extra.rounds_left = card.ability.extra.rounds_left - (1 + grass)
+        if card.ability.extra.rounds_left <= 0 then
+          card.ability.extra.rounds_left = math.max(1, card.ability.extra.rounds_left + 12)
+          if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+            local _card = create_card('Spectral', G.consumeables, nil, nil, nil, nil, 'c_poke_ext_honey')
+            _card:add_to_deck()
+            G.consumeables:emplace(_card)
+            card_eval_status_text(_card, 'extra', nil, nil, nil, {message = localize('poke_plus_pokeitem'), colour = G.ARGS.LOC_COLOURS.item})
+          end
+        end
+      end
+    end
+    if context.setting_blind then
+      card.ability.extra.triggered = false
+    end
+  end,
+}
 -- Rockruff 744
 local rockruff={
   name = "rockruff", 
@@ -648,7 +731,6 @@ local lycanrocd={
 -- Fomantis 753
 local fomantis={
   name = "fomantis",
-  poke_custom_prefix = "poke_ext",
   pos = {x = 9, y = 2},
   config = {extra = {card_threshold = 12, cards_scored = 0, rounds = 4, }},
    loc_vars = function(self, info_queue, center)
@@ -695,10 +777,9 @@ local fomantis={
  }
 -- Lurantis 754
 local lurantis={
-  name = "lurantis",
-  poke_custom_prefix = "poke_ext",
-  pos = {x = 10, y = 2},
-  config = {extra = {Xmult = 1, Xmult_mod = 0.15}},
+name = "lurantis",
+pos = {x = 10, y = 2},
+config = {extra = {Xmult = 1, Xmult_mod = 0.15}},
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
     return {vars = { center.ability.extra.Xmult, center.ability.extra.Xmult_mod }}
@@ -755,7 +836,7 @@ local lurantis={
     end
   end
 }
--- --Darkrai
+-- -- Darkrai
 -- local darkrai={
 --   name = "darkrai",
 --   no_pool_flag="darkrai_sold",
@@ -803,9 +884,9 @@ local lurantis={
 -- }
 
 return {name = "Various Additional Jokers",
--- list = {petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis, darkrai,},
--- }
-
-list = {shaymin_land, shaymin_sky, petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis,},
+list = {shaymin_land, shaymin_sky, petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, cutiefly, ribombee, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis,},
 }
+
+-- list = {shaymin_land, shaymin_sky, petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, cutiefly, ribombee, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis, darkrai,},
+-- }
 
