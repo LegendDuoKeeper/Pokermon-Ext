@@ -177,6 +177,7 @@ SMODS.Atlas({
 table.insert(family, {"petilil", "lilligant"})
 table.insert(family, {"joltik", "galvantula"})
 table.insert(family, {"diancie", "mega_diancie"})
+table.insert(family, {"cutiefly", "ribombee"})
 table.insert(family, {"rockruff", "lycanroc", "lycanrocn", "lycanrocd"})
 table.insert(family, {"fomantis", "lurantis"})
 

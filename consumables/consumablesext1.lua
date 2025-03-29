@@ -30,6 +30,9 @@ local honey = {
     remove_from_deck = function(self, card, from_debuff)
         change_shop_size(-card.ability.extra.card_slots)
     end,
+    in_pool = function(self)
+        return false
+    end,
 }
 return {name = "Additional Consumables",
 list = {honey,},

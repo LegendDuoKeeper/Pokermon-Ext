@@ -387,6 +387,7 @@ local carbink={
 -- Diancie 719
 local diancie={
   name = "diancie", 
+  poke_custom_prefix = "poke_ext",
   yes_pool_flag="carbanana_mutate",
   pos = {x = 0, y = 6},
   soul_pos = { x = 1, y = 6},
@@ -421,12 +422,12 @@ local diancie={
       end
     end
   end,
-  megas = {"mega_diancie"}
+  megas = {"ext_mega_diancie"}
 }
 -- Diancie-Mega
 local mega_diancie={
   name = "mega_diancie", 
-
+  poke_custom_prefix = "poke_ext",
   pos = {x = 8, y = 6},
   soul_pos = {x = 9, y = 6},
   config = {extra = {Xmult_multi = 1.2, money_mod = 1, retriggers = 1, rounds = 1, suit = "Diamonds"}},
@@ -521,7 +522,7 @@ local ribombee={
     if context.end_of_round and card.ability.extra.triggered == false then
       card.ability.extra.triggered = true
       for i, v in ipairs(G.consumeables.cards) do
-        print(v.config.center.key)
+        -- print(v.config.center.key)
         if v.config.center.key == "c_poke_ext_honey" then
           honey = honey + 1
         end
