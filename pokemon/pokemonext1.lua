@@ -13,6 +13,7 @@ local shaymin_land={
   blueprint_compat = true,
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
+    info_queue[#info_queue+1] = {set = 'Other', key = 'designed_by', vars = {"TekkyAnonymous"}}
     return { vars = {center.ability.extra.Xmult_mod, center.ability.extra.Xmult, center.ability.extra.eaten, center.ability.evo_req }}
   end,
   calculate = function(self, card, context)
@@ -57,6 +58,7 @@ local shaymin_sky={
   blueprint_compat = true,
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
+    info_queue[#info_queue+1] = {set = 'Other', key = 'designed_by', vars = {"TekkyAnonymous"}}
     return {vars = {center.ability.extra.Xmult}}
   end,
   calculate = function(self, card, context)

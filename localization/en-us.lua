@@ -169,10 +169,10 @@ return {
             j_poke_ext_a_vulpix = {
                 name = 'Vulpix',
                 text = {
-                    "{C:green}#1# in #2#{} chance for",
-                    "{C:attention}each played 9{} to create",
-                    "an {C:spectral}Aura{} when scored",
-                    "{C:inactive,s:0.8}(Must have room)",
+                    "{C:green}#1# in #2#{} chance for the",
+                    "{C:attention}first scored 9 each hand{}",
+                    "to become {C:dark_edition}Foil, Holographic{}",
+                    "or {C:dark_edition}Polychrome{} edition",
                     "{C:inactive,s:0.8}(Evolves with an {C:attention,s:0.8}Ice Stone{C:inactive,s:0.8})"
                 } 
             },
@@ -218,5 +218,12 @@ return {
                 },
             },
         },
+    },
+
+    misc = {
+        dictionary = {
+            --From Alolan Vulpix Line
+            k_aurora_veil_ex = "Aurora Veil!"
+        }
     }
 }
