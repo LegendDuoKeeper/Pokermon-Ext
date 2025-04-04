@@ -1,87 +1,7 @@
--- Shaymin-Land 492
-local shaymin_land={
-  name = "shaymin_land",
-  poke_custom_prefix = "poke_ext",
-  pos = {x = 10, y = 8},
-  soul_pos = {x = 11, y = 8},
-  config = { extra = { Xmult = 1, eaten = 0, Xmult_mod = 0.005 }, evo_req = 20 },
-  rarity = 4,
-  cost = 20,
-  stage = "Legendary",
-  ptype = "Grass",
-  atlas = "Pokedex4",
-  blueprint_compat = true,
-  loc_vars = function(self, info_queue, center)
-    type_tooltip(self, info_queue, center)
-    info_queue[#info_queue+1] = {set = 'Other', key = 'designed_by', vars = {"TekkyAnonymous"}}
-    return { vars = {center.ability.extra.Xmult_mod, center.ability.extra.Xmult, center.ability.extra.eaten, center.ability.evo_req }}
-  end,
-  calculate = function(self, card, context)
-    if context.cardarea == G.jokers and context.before and not context.blueprint then
-      for k, v in ipairs(context.scoring_hand) do
-        if v.config.center ~= G.P_CENTERS.c_base and not v.debuff and not v.vampired then
-          card.ability.extra.Xmult = card.ability.extra.Xmult + ((v.ability.bonus + v.base.nominal) * card.ability.extra.Xmult_mod)
-          card.ability.extra.eaten = card.ability.extra.eaten + 1
-          v.vampired = true
-          v:set_ability(G.P_CENTERS.c_base, nil, true)
-          G.E_MANAGER:add_event(Event({
-            func = function()
-              v:juice_up()
-              v.vampired = nil
-              return true
-            end
-          }))
-        end
-      end
-    elseif context.joker_main and card.ability.extra.Xmult > 1.0 then
-      return {
-        message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.Xmult } },
-        colour = G.C.XMULT,
-        Xmult_mod = card.ability.extra.Xmult
-      }
-    end
-    return scaling_evo(self, card, context, "j_poke_ext_shaymin_sky", card.ability.extra.eaten, self.config.evo_req)
-  end
-}
--- Shaymin-Sky 492
-local shaymin_sky={
-  name = "shaymin_sky",
-  poke_custom_prefix = "poke_ext",
-  pos = {x = 9, y = 10},
-  soul_pos = {x = 3, y = 10},
-  config = { extra = { Xmult = 1.5, Xmult_mod = 0.005 }},
-  rarity = 4,
-  cost = 20,
-  stage = "Legendary",
-  ptype = "Grass",
-  atlas = "Pokedex4",
-  blueprint_compat = true,
-  loc_vars = function(self, info_queue, center)
-    type_tooltip(self, info_queue, center)
-    info_queue[#info_queue+1] = {set = 'Other', key = 'designed_by', vars = {"TekkyAnonymous"}}
-    return {vars = {center.ability.extra.Xmult}}
-  end,
-  calculate = function(self, card, context)
-    if context.cardarea == G.play and context.individual and card.ability.extra.Xmult > 1.0 then
-      if context.other_card.config.center ~= G.P_CENTERS.c_base and not context.other_card.debuffed then
-        return {
-          message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.Xmult } },
-          colour = G.C.XMULT,
-          Xmult_mod = card.ability.extra.Xmult
-        }
-      end
-    elseif context.joker_main and card.ability.extra.Xmult > 1.0 then
-      return {
-        message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.Xmult } },
-        colour = G.C.XMULT,
-        Xmult_mod = card.ability.extra.Xmult
-      }
-    end
-  end
-}
 -- Petilil 548
 local petilil={
   name = "petilil", 
+  poke_custom_prefix = "poke_ext",
   pos = {x = 12, y = 3},
   config = {extra = {chips = 5, mult = 1, money = 2, suit = "Spades"}},
   loc_vars = function(self, info_queue, center)
@@ -401,7 +321,8 @@ local diancie={
   end,
   rarity = 3, 
   cost = 9, 
-  stage = "Legendary", 
+  -- Shaymin and Diancie are staged as Babies to prevent being called from various pokeball items
+  stage = "Baby", 
   ptype = "Earth",
   atlas = "Pokedex6",
   blueprint_compat = true,
@@ -424,6 +345,7 @@ local diancie={
       end
     end
   end,
+  -- Temporary solution to modded megas not being properly supported, mega evolving works like this, but will crash on selling mega stone or devolving
   megas = {"ext_mega_diancie"}
 }
 -- Diancie-Mega
@@ -524,7 +446,6 @@ local ribombee={
     if context.end_of_round and card.ability.extra.triggered == false then
       card.ability.extra.triggered = true
       for i, v in ipairs(G.consumeables.cards) do
-        -- print(v.config.center.key)
         if v.config.center.key == "c_poke_ext_honey" then
           honey = honey + 1
         end
@@ -839,57 +760,57 @@ config = {extra = {Xmult = 1, Xmult_mod = 0.15}},
     end
   end
 }
--- -- Darkrai
--- local darkrai={
---   name = "darkrai",
---   no_pool_flag="darkrai_sold",
---   pos = {x = 8, y = 8},
---   soul_pos = { x = 9, y = 8},
---   config = {extra = {}},
---   loc_vars = function(self, info_queue, center)
---     type_tooltip(self, info_queue, center)
---     return {vars = {}}
---   end,
---   rarity = 4,
---   cost = 20,
---   stage = "Legendary",
---   ptype = "Dark",
---   atlas = "Pokedex4",
---   perishable_compat = false,
---   blueprint_compat = false,
---   eternal_compat = false,
---   calculate = function(self, card, context)
---     if context.selling_self then
---       if G.GAME.pool_flags.darkrai_sold == false then
---         G.GAME.pool_flags.darkrai_sold = true
---       end
---       if G.shop_vouchers and G.shop_vouchers.cards then 
---       local baddreams_in_shop = false
---         if not baddreams_in_shop then
---           for i = 1, #G.shop_vouchers.cards do
---             if G.shop_vouchers.cards[i].ability.name == "baddreams" then
---               baddreams_in_shop = true
---             end
---           end
---           if not G.GAME.used_vouchers.v_poke_ext_baddreams and not baddreams_in_shop then
---             G.shop_vouchers.config.card_limit = G.shop_vouchers.config.card_limit + 1
---             local _card = Card(G.shop_vouchers.T.x + G.shop_vouchers.T.w/2,
---             G.shop_vouchers.T.y, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS['v_poke_ext_baddreams'],{bypass_discovery_center = true, bypass_discovery_ui = true})
---             create_shop_card_ui(_card, 'Voucher', G.shop_vouchers)
---             _card:start_materialize()
---             G.shop_vouchers:emplace(_card)
---             added = true
---           end
---         end
---       end
---     end
---   end,
--- }
-
-return {name = "Various Additional Jokers",
-list = {shaymin_land, shaymin_sky, petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, cutiefly, ribombee, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis,},
+-- Giratina
+local giratina={
+  name = "giratina",
+  no_pool_flag="giratina_sold",
+  pos = {x = 0, y = 8},
+  soul_pos = { x = 1, y = 8},
+  config = {extra = {}},
+  loc_vars = function(self, info_queue, center)
+    type_tooltip(self, info_queue, center)
+    return {vars = {}}
+  end,
+  rarity = 4,
+  cost = 20,
+  stage = "Legendary",
+  ptype = "Psychic",
+  atlas = "Pokedex4",
+  perishable_compat = false,
+  blueprint_compat = false,
+  eternal_compat = false,
+  calculate = function(self, card, context)
+    if context.selling_self then
+      if G.GAME.pool_flags.giratina_sold == false then
+        G.GAME.pool_flags.giratina_sold = true
+      end
+      if G.shop_vouchers and G.shop_vouchers.cards then 
+      local distortion_in_shop = false
+        if not distortion_in_shop then
+          for i = 1, #G.shop_vouchers.cards do
+            if G.shop_vouchers.cards[i].ability.name == "distortion" then
+              distortion_in_shop = true
+            end
+          end
+          if not G.GAME.used_vouchers.v_poke_ext_distortion and not distortion_in_shop then
+            G.shop_vouchers.config.card_limit = G.shop_vouchers.config.card_limit + 1
+            local _card = Card(G.shop_vouchers.T.x + G.shop_vouchers.T.w/2,
+            G.shop_vouchers.T.y, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS['v_poke_ext_distortion'],{bypass_discovery_center = true, bypass_discovery_ui = true})
+            create_shop_card_ui(_card, 'Voucher', G.shop_vouchers)
+            _card:start_materialize()
+            G.shop_vouchers:emplace(_card)
+            added = true
+          end
+        end
+      end
+    end
+  end,
 }
 
--- list = {shaymin_land, shaymin_sky, petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, cutiefly, ribombee, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis, darkrai,},
+return {name = "Various Additional Jokers",
+-- list = {shaymin_land, shaymin_sky, petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, cutiefly, ribombee, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis,},
 -- }
+
+list = {petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, cutiefly, ribombee, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis, giratina,},
+}
 

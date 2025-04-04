@@ -1,7 +1,7 @@
 {
 	"id": "Pokermon-Ext",
 	"name": "Pokermon-Ext",
-	"author": ["Team Legend-Burger, see credits"],
+	"author": ["Team Ten Cent Burger, see credits"],
 	"description": "hi",
 	"prefix": "poke_ext",
 	"main_file": "pokermonext.lua",

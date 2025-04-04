@@ -156,14 +156,14 @@ SMODS.Atlas({
   py = 95
 }):register()
 
--- -- Only Used for Darkrai
--- SMODS.Atlas({
---   key = "vouchers",
---   path = "vouchers.png",
+-- Only Used for Giratina
+SMODS.Atlas({
+  key = "vouchers",
+  path = "vouchers.png",
   
---   px = 71,
---   py = 95
--- }):register()
+  px = 71,
+  py = 95
+}):register()
 
 SMODS.Atlas({
   key = "honey",
@@ -181,7 +181,7 @@ table.insert(family, {"cutiefly", "ribombee"})
 table.insert(family, {"rockruff", "lycanroc", "lycanrocn", "lycanrocd"})
 table.insert(family, {"fomantis", "lurantis"})
 
--- table.insert(family, {"darkrai"})
+table.insert(family, {"giratina"})
 table.insert(family, {"carbink"})
 
 table.insert(family, {"a_vulpix", "a_ninetales"})
@@ -192,24 +192,24 @@ if (SMODS.Mods["Pokermon"] or {}).can_load then
     pokermon_config = SMODS.Mods["Pokermon"].config
 end
 
--- -- Load vouchers (Only used for Darkrai's Voucher)
--- local vouchers = NFS.getDirectoryItems(mod_dir .. "vouchers")
+-- Load vouchers (Only used for Giratina's Voucher)
+local vouchers = NFS.getDirectoryItems(mod_dir .. "vouchers")
 
--- for _, file in ipairs(vouchers) do
---   sendDebugMessage("The file is: " .. file)
---   local voucher, load_error = SMODS.load_file("vouchers/" .. file)
---   if load_error then
---     sendDebugMessage("The error is: " .. load_error)
---   else
---     local curr_voucher = voucher()
---     if curr_voucher.init then curr_voucher:init() end
+for _, file in ipairs(vouchers) do
+  sendDebugMessage("The file is: " .. file)
+  local voucher, load_error = SMODS.load_file("vouchers/" .. file)
+  if load_error then
+    sendDebugMessage("The error is: " .. load_error)
+  else
+    local curr_voucher = voucher()
+    if curr_voucher.init then curr_voucher:init() end
 
---     for i, item in ipairs(curr_voucher.list) do
---       item.discovered = not pokermon_config.pokemon_discovery
---       SMODS.Voucher(item)
---     end
---   end
--- end
+    for i, item in ipairs(curr_voucher.list) do
+      item.discovered = not pokermon_config.pokemon_discovery
+      SMODS.Voucher(item)
+    end
+  end
+end
 
 --Load consumables
 local pconsumables = NFS.getDirectoryItems(mod_dir.."consumables")
@@ -292,16 +292,43 @@ for _, file in ipairs(pfiles) do
     end
   end
 end
--- -- Code for Darkrai Voucher
--- SMODS.Tarot:take_ownership ('death',
--- {
--- in_pool = function(self) 
---   if G.GAME.used_vouchers.v_poke_ext_baddreams then 
---     return false
---     else
---     return true
---   end
--- end
--- },
--- true
--- )
+-- Code for Giratina Voucher
+SMODS.Tarot:take_ownership ('death',
+{
+in_pool = function(self) 
+  if G.GAME.used_vouchers.v_poke_ext_distortion then 
+    return false
+    else
+    return true
+  end
+end
+},
+true
+)
+-- Code for nerfing Metal Coat with Giratina
+SMODS.Consumable:take_ownership ('poke_metalcoat',
+{
+  use = function(self, card, area, copier)
+    set_spoon_item(card)
+    local choice = nil
+    if G.jokers.highlighted and #G.jokers.highlighted == 1 then
+      choice = G.jokers.highlighted[1]
+    elseif G.jokers and G.jokers.cards and #G.jokers.cards > 0 then
+      choice = G.jokers.cards[1]
+    end
+    
+    if choice then
+      apply_type_sticker(choice, "Metal")
+      card_eval_status_text(choice, 'extra', nil, nil, nil, {message = localize("poke_metal_ex"), colour = G.ARGS.LOC_COLOURS["metal"]})
+    end
+
+    local copy = copy_card(G.hand.highlighted[1], nil, nil, G.playing_card)
+    copy:set_ability(G.P_CENTERS.m_steel, nil, true)
+    if copy.edition and copy.edition.negative then
+      copy:set_edition(nil, true)
+    end
+    poke_add_card(copy, card)
+  end,
+  },
+  true
+)

@@ -106,9 +106,9 @@ return {
             j_poke_ext_ribombee = {
                 name = 'Ribombee',
                 text = {
-                    "While you don't have {C:attention}Honey{}",
-                    "After #1# rounds create a {C:attention}Honey{} card",
-                    "Counter decreases an additional time",
+                    "If you don't have a {C:attention}Honey{} card",
+                    "Create a {C:attention}Honey{} card after",
+                    "#1# rounds, Decreases an additional time",
                     "for each {X:grass,C:white}Grass{} joker you have",
                 }
             },
@@ -185,10 +185,10 @@ return {
                     "copy and draw it to {C:attention}hand{}"
                 } 
             },
-            j_poke_ext_darkrai = {
-                name = "Darkrai",
+            j_poke_ext_giratina = {
+                name = "Giratina",
                 text = {
-                "Creates a{C:dark_edition} Bad Dreams{}",
+                "Creates a{C:dark_edition} Distortion{}",
                 "{C:attention}voucher{} in the shop",
                 "when sold"
                 }
@@ -208,8 +208,8 @@ return {
         
 
         Voucher = {
-            v_poke_ext_baddreams = {
-                name = "Bad Dreams",
+            v_poke_ext_distortion = {
+                name = "Distortion",
                 text = {
                     "Replaces Edition of a",
                     "random playing card in deck",
@@ -218,12 +218,5 @@ return {
                 },
             },
         },
-    },
-
-    misc = {
-        dictionary = {
-            --From Alolan Vulpix Line
-            k_aurora_veil_ex = "Aurora Veil!"
-        }
     }
 }
