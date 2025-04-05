@@ -321,8 +321,7 @@ local diancie={
   end,
   rarity = 3, 
   cost = 9, 
-  -- Shaymin and Diancie are staged as Babies to prevent being called from various pokeball items
-  stage = "Baby", 
+  stage = "Legendary", 
   ptype = "Earth",
   atlas = "Pokedex6",
   blueprint_compat = true,

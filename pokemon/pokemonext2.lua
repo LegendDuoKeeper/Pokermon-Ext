@@ -8,8 +8,7 @@ local shaymin_land={
   config = { extra = { Xmult = 1, eaten = 0, Xmult_mod = 0.005 }, evo_req = 20 },
   rarity = 4,
   cost = 20,
-  -- Shaymin and Diancie are staged as Babies to prevent being called from various pokeball items
-  stage = "Baby",
+  stage = "Legendary",
   ptype = "Grass",
   atlas = "Pokedex4",
   blueprint_compat = true,
