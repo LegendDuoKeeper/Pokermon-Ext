@@ -7,41 +7,41 @@ Currently adds:
 
   9 new pokemon lines:
 
-  -Giratina (Very Experimental)
+  - Giratina (Very Experimental)
 
-  -Petilil + both Lilligants
+  - Petilil + both Lilligants
 
-  -Joltik + Galvantula (Co-designed with Beoulve)
+  - Joltik + Galvantula (Co-designed with Beoulve)
 
-  -Carbink + Diancie and Mega Diancie (some liberties were taken grouping these two together)
+  - Carbink + Diancie and Mega Diancie (some liberties were taken grouping these two together)
 
-  -Cutiefly + Ribombee
+  - Cutiefly + Ribombee
 
-  -Rockruff + 3 Lycanrocs
+  - Rockruff + 3 Lycanrocs
 
-  -Fomantis + Lurantis (Co-designed with Beoulve)
+  - Fomantis + Lurantis (Co-designed with Beoulve)
 
-  -Alolan Vulpix + Ninetales (Designed by TekkyAnonymous)
+  - Alolan Vulpix + Ninetales (Designed by TekkyAnonymous)
 
-  -Shaymin + Sky Forme (Designed by TekkyAnonymous)
+  - Shaymin + Sky Forme (Designed by TekkyAnonymous)
 
 ---
   
   1 New Voucher
   
-  -Distortion (Also very Experimental)
+  - Distortion (Also very Experimental)
 
 ---
   
   1 New Item
 
-  -Honey (Art by DaleWillFail) (Still being tweaked)
+  - Honey (Art by DaleWillFail) (Still being tweaked)
 
 ---
   
   1 Balance change
 
-  -Metal Coat makes a Steel editionless copy of selected card when selected card is Negative (Only relevant for Giratina and/or additional mods)
+  - Metal Coat makes an editionless Steel copy of selected card if selected card is Negative (Only relevant for Giratina and/or additional mods)
 
 ---
 
@@ -84,13 +84,9 @@ Short-ish explanation for why each joker does what it does:
     I'm currently not thrilled with how Lilligant-H works, but its Dex entries give little to nothing to work with, and I wanted to try theming it around a Sun-based effect
     as best as I could for an environment with no weather effects. It does function quite similarly to Exeggutor, which is partly why I'm unhappy with it.
 
---
-
   - Carbink and Diancie are one of the most related pairs of pokemon that don't share an evolution line, and Diancie's signature move is Diamond Storm, so having it be
     the huge Diamond payout I was looking for just made too much sense. The Gros Michel/Cavendish relation seemed like a nice way to tie in Diancie being a rare
     mutation of Carbink, and Pokermon didn't have a Diamond enabler (cleffa, igglybuff, etc.) yet, so giving that effect to Carbink made sense to me.
-
---
 
   - Rockruff and co. are loosely tied to a werewolf type gimmick, which ties in to the Moon Tarot card for Clubs, which rounds out each of the suits. I really like the 
     concept of having the form you get be based off of the total number of clubs in your deck, but it feels like the numbers still need some work.
