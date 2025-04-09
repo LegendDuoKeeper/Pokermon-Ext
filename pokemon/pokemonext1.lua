@@ -805,6 +805,7 @@ local giratina={
   config = {extra = {}},
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
+    info_queue[#info_queue+1] = G.P_CENTERS.v_poke_ext_distortion
     return {vars = {}}
   end,
   rarity = 4,
