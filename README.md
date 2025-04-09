@@ -78,10 +78,10 @@ Short-ish explanation for why each joker does what it does:
   - Petilil's Dex entry talks about its leaves being reinvigorating, so I applied that to gaining a burst of energy for the last hand of the round. It was given spades
     due to the Lilligants having association with dancing, and the World Tarot card has a dancer on it.
 
-  - Lilligant's Dex entry mentions how difficult it is to take care of, often withering at the slightest lapse in maintenance. I attempted to re-create these maintenance
+    Lilligant's Dex entry mentions how difficult it is to take care of, often withering at the slightest lapse in maintenance. I attempted to re-create these maintenance
     difficulties by including a rather harsh punishment for playing the wrong suit, but to otherwise give a reasonably strong payout for a spade deck.
 
-  - I'm currently not thrilled with how Lilligant-H works, but its Dex entries give little to nothing to work with, and I wanted to try theming it around a Sun-based effect
+    I'm currently not thrilled with how Lilligant-H works, but its Dex entries give little to nothing to work with, and I wanted to try theming it around a Sun-based effect
     as best as I could for an environment with no weather effects. It does function quite similarly to Exeggutor, which is partly why I'm unhappy with it.
 
 --
@@ -95,11 +95,11 @@ Short-ish explanation for why each joker does what it does:
   - Rockruff and co. are loosely tied to a werewolf type gimmick, which ties in to the Moon Tarot card for Clubs, which rounds out each of the suits. I really like the 
     concept of having the form you get be based off of the total number of clubs in your deck, but it feels like the numbers still need some work.
 
-  - Lycanroc-Day's effect is the one I'm least happy with. My initial vision with this line was to encourage a play pattern that included using Lycanroc-Day
+    Lycanroc-Day's effect is the one I'm least happy with. My initial vision with this line was to encourage a play pattern that included using Lycanroc-Day
     to both help you get to the other forms, and make them better when you got to them. However, making this play pattern feel good has been difficult, and the theming
     behind Day form copying cards is almost non-existant. These 2 factors will likely lead to me redoing this form's effect depending on what feedback it ends up getting.
 
-  - On the other hand, I am rather happy with where the other 2 forms are at. Lycanroc-Night is a strong but kinda slow scaling joker, and Lycanroc-Dusk is the
+    On the other hand, I am rather happy with where the other 2 forms are at. Lycanroc-Night is a strong but kinda slow scaling joker, and Lycanroc-Dusk is the
     big payoff for successfully navigating the "dilemma" of sorts the Rockruff timer was supposed to present.
 
 ---
@@ -109,21 +109,17 @@ And now for the other jokers that came after my mission to make non-Heart suits 
   - Joltik is known to leech off of other pokemon to create electricity, which is where the drain effect comes from. Having it "make" gold cards seemed like a good way
     to have a thematic payoff since electric pokemon are already quite tied to money and gold cards.
 
-  - Galvantula's effects are very much a continuation of Joltik's, with some theming borrowed from a part of the Pokemon anime where Galvantula was shown to eat
+    Galvantula's effects are very much a continuation of Joltik's, with some theming borrowed from a part of the Pokemon anime where Galvantula was shown to eat
     Thunder Stones. We worked on Galvantula before hazards were added, and despite it probably being a good fit for hazards, we have no plans to change it.
 
---
-  
   - Cutiefly and Ribombee are bees with the ability Honey Gather, which led me to giving them an item based payoff that gets better with more Grass pokemon to collect
     honey from. These 2 are still very new and haven't had much testing.
-
---
 
   - We started with Lurantis before Fomantis for this line, and after scrapping a few ideas we wanted to sort of combine a dagger-esque effect with a Sun-powered theme 
     to tie in with it's "signature" move Solar Blade, and the fact that its mantis-y nature to eat things. This led us to having Lurantis scale of off destorying hearts,
     which has played better than we expected, but might still need some tweaks to offset how strong removing 13 cards in 4-5 rounds is.
 
-  - Pokermon didn't have a heart enabler (cleffa, igglybuff, etc.) yet, so tying that to Fomantis who is known to take energy from the sun, (tied back to the Sun Tarot card)
+    Pokermon didn't have a heart enabler (cleffa, igglybuff, etc.) yet, so tying that to Fomantis who is known to take energy from the sun, (tied back to the Sun Tarot card)
     to help its evolved form seemed reasonable. Hitting all 4 opportunities for a Sun card isn't as easy as it may sound, which helps keep it in check.
 
 ---
