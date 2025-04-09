@@ -6,12 +6,14 @@ local petilil={
   config = {extra = {chips = 5, mult = 1, money = 2, suit = "Spades"}},
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
+    info_queue[#info_queue+1] = G.P_CENTERS.c_poke_leafstone
     info_queue[#info_queue+1] = G.P_CENTERS.c_poke_sunstone
     return {vars = {center.ability.extra.money, center.ability.extra.chips, center.ability.extra.mult}}
   end,
   rarity = 1, 
   cost = 5,
-  item_req = "sunstone",
+  item_req = {"leafstone", "sunstone"},
+  evo_list = {leafstone = "j_poke_ext_lilligant", sunstone = "j_poke_ext_lilliganth"},
   stage = "Basic", 
   ptype = "Grass",
   atlas = "Pokedex5",
@@ -26,7 +28,7 @@ local petilil={
           }
       end
     end
-    return item_evo(self, card, context, "j_poke_ext_lilligant")
+    return item_evo(self, card, context)
   end, 
   calc_dollar_bonus = function(self, card)
     if G.GAME.current_round.hands_left == 0 then
@@ -55,7 +57,7 @@ local lilligant={
     }}
   end,
   rarity = "poke_safari", 
-  cost = 5, 
+  cost = 8, 
   stage = "One", 
   ptype = "Grass",
   atlas = "Pokedex5",
@@ -107,6 +109,40 @@ local lilligant={
     end
   end
 
+}
+-- Lilligant-H 549
+local lilliganth={
+  name = "lilliganth", 
+  pos = {x = 8, y = 4},
+  config = {extra = {fire = 0, Xmult_multi = 1.5, suit = "Spades", odds = 1, odds2 = 8}},
+  loc_vars = function(self, info_queue, center)
+    type_tooltip(self, info_queue, center)
+    if G.playing_cards then
+      center.ability.extra.fire = #find_pokemon_type("Fire")
+      center.ability.extra.odds = math.max(1, G.GAME.probabilities.normal + center.ability.extra.fire)
+    end
+    return {vars = {center.ability.extra.Xmult_multi, center.ability.extra.odds, center.ability.extra.odds2}}
+  end,
+  rarity = "poke_safari", 
+  cost = 8, 
+  stage = "One", 
+  ptype = "Fighting",
+  atlas = "Regionals",
+  blueprint_compat = true,
+  calculate = function(self, card, context)
+    if context.individual and context.cardarea == G.play and context.other_card:is_suit(card.ability.extra.suit) then
+      if not context.end_of_round and not context.before and not context.after and not context.other_card.debuff then
+        if pseudorandom('lilliganth') < card.ability.extra.odds/card.ability.extra.odds2 then
+          return {
+            message = "Victory Dance!",
+            colour = G.C.XMULT,
+            x_mult = card.ability.extra.Xmult_multi,
+            card = card
+          }
+        end
+      end
+    end
+  end
 }
 -- Joltik 595
 local joltik={
@@ -233,7 +269,7 @@ local carbink={
   rarity = 1, 
   cost = 6, 
   stage = "Basic", 
-  ptype = "Earth",
+  ptype = "Fairy",
   atlas = "Pokedex6",
   blueprint_compat = false,
   calculate = function(self, card, context)
@@ -319,10 +355,10 @@ local diancie={
     info_queue[#info_queue+1] = {set = 'Other', key = 'mega_poke'}
                 return {vars = {center.ability.extra.mult}}
   end,
-  rarity = 3, 
+  rarity = 2, 
   cost = 9, 
   stage = "Legendary", 
-  ptype = "Earth",
+  ptype = "Fairy",
   atlas = "Pokedex6",
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -361,7 +397,7 @@ local mega_diancie={
   rarity = "poke_mega", 
   cost = 16, 
   stage = "Mega", 
-  ptype = "Earth",
+  ptype = "Fairy",
   atlas = "Megas",
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -430,6 +466,7 @@ local ribombee={
   config = {extra = {rounds_left = 12, triggered = false}},
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
+    info_queue[#info_queue+1] = G.P_CENTERS.c_poke_ext_honey
     return {vars = {center.ability.extra.rounds_left}}
   end,
   rarity = "poke_safari",
@@ -810,6 +847,6 @@ return {name = "Various Additional Jokers",
 -- list = {shaymin_land, shaymin_sky, petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, cutiefly, ribombee, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis,},
 -- }
 
-list = {petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, cutiefly, ribombee, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis, giratina,},
+list = {petilil, lilligant, lilliganth, joltik, galvantula, carbink, diancie, mega_diancie, cutiefly, ribombee, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis, giratina,},
 }
 

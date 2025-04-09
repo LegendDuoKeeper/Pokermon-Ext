@@ -1,5 +1,9 @@
 default_poke_custom_prefix = "poke_ext"
 
+-- WIP Code for adding a config menu
+-- mod_dir = ''..SMODS.current_mod.path
+-- pokermonext_config = SMODS.current_mod.config
+
 -- SMODS.Atlas({
 --   key = "Pokedex2",
 --   path = "Pokedex2.png",
@@ -141,16 +145,16 @@ SMODS.Atlas({
 }):register()
 
 SMODS.Atlas({
-  key = "Regional",
-  path = "Regional.png",
+  key = "Regionals",
+  path = "Regionals.png",
   
   px = 71,
   py = 95
 }):register()
 
 SMODS.Atlas({
-  key = "shiny_Regional",
-  path = "shiny_Regional.png",
+  key = "shiny_Regionals",
+  path = "shiny_Regionals.png",
   
   px = 71,
   py = 95
@@ -174,7 +178,7 @@ SMODS.Atlas({
 }):register()
 
 --Required by the pokemon family function (right click on a pokemon joker)
-table.insert(family, {"petilil", "lilligant"})
+table.insert(family, {"petilil", "lilligant", "lilliganth"})
 table.insert(family, {"joltik", "galvantula"})
 table.insert(family, {"diancie", "mega_diancie"})
 table.insert(family, {"cutiefly", "ribombee"})

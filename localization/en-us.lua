@@ -28,7 +28,7 @@ return {
                   "during {C:attention}final hand{} of round",
                   "Earn {C:money}$#1#{} at end of round", 
                   "when {C:attention}0{} hands remaining",
-                  "{C:inactive,s:0.8}(Evolves with a {C:attention,s:0.8}Sun Stone{C:inactive,s:0.8})",
+                  "{C:inactive,s:0.8}(Evolves with a {C:attention,s:0.8}Leaf Stone{C:inactive,s:0.8} or a {C:attention,s:0.8}Sun Stone{C:inactive,s:0.8})",
                 }
             },
             j_poke_ext_lilligant = {
@@ -39,6 +39,15 @@ return {
                   "played card that isn't a {C:spades}Spade{}",
                   "{C:mult}Self destructs{} when below {X:red,C:white}X1{} Mult",
                   "{C:inactive,s:0.8}(Currently {X:red,C:white}X#1#{C:inactive,s:0.8} Mult, {C:attention,s:0.8}#4#{}{C:inactive,s:0.8}/15 {C:spades,s:0.8}Spades{C:inactive,s:0.8} scored)"
+                }
+            },
+            j_poke_ext_lilliganth = {
+                name = "Lilligant-Hisui",
+                text = {
+                    "Played {C:spades}Spades{} have a {C:green}#2# in #3#{}",
+                    "chance to give {X:red,C:white}X#1#{} when scored",
+                    "Chance increases by 1 for each",
+                    "{X:fire,C:white}Fire{} joker you have"
                 }
             },
             j_poke_ext_joltik = {
@@ -108,7 +117,7 @@ return {
                 text = {
                     "If you don't have a {C:attention}Honey{} card",
                     "Create a {C:attention}Honey{} card after",
-                    "#1# rounds, Decreases an additional time",
+                    "{C:attention}#1#{} rounds, Decreases an additional time",
                     "for each {X:grass,C:white}Grass{} joker you have",
                 }
             },
@@ -199,9 +208,9 @@ return {
             c_poke_ext_honey = {
                 name = "Honey",
                 text = {
-                    "Gives +1 Shop Slot while held",
-                    "Use to create a",
-                    "{C:attention}Shiny{} tag",
+                    "+1 Shop Slot",
+                    "Use to create",
+                    "a{C:attention} Shiny{} tag",
                 },
             },
         },

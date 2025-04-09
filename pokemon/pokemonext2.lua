@@ -83,13 +83,13 @@ local shaymin_sky={
 -- Alolan Vulpix
 local a_vulpix={
     name = "a_vulpix",
-    pos = {x = 0, y = 0},
+    pos = {x = 5, y = 0},
     config = {extra = {odds = 6}},
     rarity = 3,
     cost = 8,
     item_req = "icestone",
     stage = "Basic",
-    atlas = "Regional",
+    atlas = "Regionals",
     ptype = "Water",
     blueprint_compat = true,
     loc_vars = function(self, info_queue, center)
@@ -126,13 +126,13 @@ local a_vulpix={
 -- Alolan Ninetales
 local a_ninetales={
     name = "a_ninetales",
-    pos = {x = 1, y = 0},
+    pos = {x = 6, y = 0},
     config = {extra = {odds = 9, limit = 1, triggers = 0}},
     rarity = "poke_safari",
     cost = 10,
     stage = "One",
-    atlas = "Regional",
-    ptype = "Water",
+    atlas = "Regionals",
+    ptype = "Fairy",
     blueprint_compat = true,
     loc_vars = function(self, info_queue, center)
         type_tooltip(self, info_queue, center)
