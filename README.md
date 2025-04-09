@@ -105,8 +105,8 @@ And now for the other jokers that came after my mission to make non-Heart suits 
   - Joltik is known to leech off of other pokemon to create electricity, which is where the drain effect comes from. Having it "make" gold cards seemed like a good way
     to have a thematic payoff since electric pokemon are already quite tied to money and gold cards.
 
-    Galvantula's effects are very much a continuation of Joltik's, with some theming borrowed from a part of the Pokemon anime where Galvantula was shown to eat
-    Thunder Stones. We worked on Galvantula before hazards were added, and despite it probably being a good fit for hazards, we have no plans to change it.
+    Galvantula's effects are very much a follow-up payout to Joltik's, with some theming borrowed from a part of the Pokemon anime where Galvantula was shown to eat
+    Thunder Stones. We worked on Galvantula before hazards were added, and despite it probably being a good fit for hazards, we currently have no plans to change it.
 
   - Cutiefly and Ribombee are bees with the ability Honey Gather, which led me to giving them an item based payoff that gets better with more Grass pokemon to collect
     honey from. These 2 are still very new and haven't had much testing.
