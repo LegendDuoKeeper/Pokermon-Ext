@@ -2,24 +2,24 @@ An add-on to the Pokermon mod (original mod and credit to creator in "About")
 Currently adds:
 
   9 new pokemon lines:
-    -Giratina (Very Experimental)
-    -Petilil + both Lilligants
-    -Joltik + Galvantula (Co-designed with Beoulve)
-    -Carbink + Diancie and Mega Diancie (some liberties were taken grouping these two together)
-    -Cutiefly + Ribombee
-    -Rockruff + 3 Lycanrocs
-    -Fomantis + Lurantis (Co-designed with Beoulve)
-    -Alolan Vulpix + Ninetales (Designed by TekkyAnonymous)
-    -Shaymin + Sky Forme (Designed by TekkyAnonymous)
+  -Giratina (Very Experimental)
+  -Petilil + both Lilligants
+  -Joltik + Galvantula (Co-designed with Beoulve)
+  -Carbink + Diancie and Mega Diancie (some liberties were taken grouping these two together)
+  -Cutiefly + Ribombee
+  -Rockruff + 3 Lycanrocs
+  -Fomantis + Lurantis (Co-designed with Beoulve)
+  -Alolan Vulpix + Ninetales (Designed by TekkyAnonymous)
+  -Shaymin + Sky Forme (Designed by TekkyAnonymous)
   
   1 New Voucher
-    -Distortion (Also very Experimental)
+  -Distortion (Also very Experimental)
   
   1 New Item
-    -Honey (Art by DaleWillFail) (Still being tweaked)
+  -Honey (Art by DaleWillFail) (Still being tweaked)
   
   1 Balance change
-    -Metal Coat makes a Steel editionless copy of selected card when selected card is Negative (Only relevant for Giratina and/or additional mods)
+  -Metal Coat makes a Steel editionless copy of selected card when selected card is Negative (Only relevant for Giratina and/or additional mods)
 
 Basically everything here likely needs some amount of small tweaks, with some more obvious offenders who are due for some larger ones, but hopefully
 the theming for them is appreciated and some of these become proper additions after those tweaks.
