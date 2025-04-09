@@ -1,5 +1,7 @@
 An add-on to the Pokermon mod (original mod and credit to creator in "About")
 
+A thanks to NhanBread for helping me through the process of coding my first project
+
 Basically everything here likely needs some amount of small tweaks, with some more obvious offenders who are due for some larger ones, but hopefully
 the theming for them is appreciated and some of these become proper additions after those tweaks.
 
@@ -67,7 +69,7 @@ Known issues:
 
   - Carbink and Rockruff sometimes display an inaccurate total, cause currently unknown
 
-  - Diancie is currently an Uncommon joker for testing purposes, it probably will go back to Rare.
+  - Diancie is currently an Uncommon joker for testing purposes, it probably will go back to Rare
 
 ---
 
