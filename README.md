@@ -1,5 +1,8 @@
 An add-on to the Pokermon mod (original mod and credit to creator in "About")
 
+Basically everything here likely needs some amount of small tweaks, with some more obvious offenders who are due for some larger ones, but hopefully
+the theming for them is appreciated and some of these become proper additions after those tweaks.
+
 Currently adds:
 
   9 new pokemon lines:
@@ -21,21 +24,26 @@ Currently adds:
   -Alolan Vulpix + Ninetales (Designed by TekkyAnonymous)
 
   -Shaymin + Sky Forme (Designed by TekkyAnonymous)
+
+---
   
   1 New Voucher
   
   -Distortion (Also very Experimental)
+
+---
   
   1 New Item
 
   -Honey (Art by DaleWillFail) (Still being tweaked)
+
+---
   
   1 Balance change
 
   -Metal Coat makes a Steel editionless copy of selected card when selected card is Negative (Only relevant for Giratina and/or additional mods)
 
-Basically everything here likely needs some amount of small tweaks, with some more obvious offenders who are due for some larger ones, but hopefully
-the theming for them is appreciated and some of these become proper additions after those tweaks.
+---
 
 To do list:
 
@@ -49,6 +57,8 @@ To do list:
 
   -Get sidetracked by other ideas and make more jokers before finishing above tasks
 
+---
+
 Known issues:
 
   -Attempting to unevolve Mega-Diancie crashes due to a conflict with the mega code and outside additions
@@ -58,6 +68,8 @@ Known issues:
   -Carbink and Rockruff sometimes display an inaccurate total, cause currently unknown
 
   -Diancie is currently an Uncommon joker for testing purposes, it probably will go back to Rare.
+
+---
 
 Short-ish explanation for why each joker does what it does:
 
@@ -72,13 +84,13 @@ Short-ish explanation for why each joker does what it does:
   -I'm currently not thrilled how Lilligant-H works, but its Dex entries give little to nothing to work with, and I wanted to try theming it around a Sun-based effect
     as best as I could for an environment with no weather effects. It does function quite similarly to Exeggutor, which is partly why I'm unhappy with it.
 
----
+-
 
   -Carbink and Diancie are one of the most related pairs of pokemon that don't share an evolution line, and Diancie's signature move is Diamond Storm, so having it be
     the huge Diamond payout I was looking for just made too much sense. The Gros Michel/Cavendish relation seemed like a nice way to tie in Diancie being a rare
     mutation of Carbink, and Pokermon didn't have a Diamond enabler (cleffa, igglybuff, etc.) yet, so giving that effect to Carbink made sense to me.
 
----
+-
 
   -Rockruff and co. are loosely tied to a werewolf type gimmick, which ties in to the Moon Tarot card for Clubs, which rounds out each of the suits. I really like the 
   concept of having the form you get be based off of the total number of clubs in your deck, but it feels like the numbers still need some work.
@@ -90,6 +102,8 @@ Short-ish explanation for why each joker does what it does:
   -On the other hand, I am rather happy with where the other 2 forms are at. Lycanroc-Night is a strong but kinda slow scaling joker, and Lycanroc-Dusk is the
     big payoff for successfully navigating the "dilemma" of sorts the Rockruff timer was supposed to present.
 
+---
+
 And now for the other jokers that came after my mission to make non-Heart suits better:
 
   -Joltik is known to leech off of other pokemon to create electricity, which is where the drain effect comes from. Having it "make" gold cards seemed like a good way
@@ -98,10 +112,12 @@ And now for the other jokers that came after my mission to make non-Heart suits 
   -Galvantula's effects are very much a continuation of Joltik's, with some theming borrowed from a part of the Pokemon anime where Galvantula was shown to eat
     Thunder Stones. We worked on Galvantula before hazards were added, and despite it probably being a good fit for hazards, we have no plans to change it.
 
----
+-
   
   -Cutiefly and Ribombee are bees with the ability Honey Gather, which led me to giving them an item based payoff that gets better with more Grass pokemon to collect
     honey from. These 2 are still very new and haven't had much testing.
+
+-
 
   -We started with Lurantis before Fomantis for this line, and after scrapping a few ideas we wanted to sort of combine a dagger-esque effect with a Sun-powered theme 
     to tie in with it's "signature" move Solar Blade, and the fact that its mantis-y nature to eat things. This led us to having Lurantis scale of off destorying hearts,
