@@ -73,15 +73,15 @@ Known issues:
 
 Short-ish explanation for why each joker does what it does:
 
-  -I started this project almost entirely from a desire to add jokers to make the non-Hearts suits better because they had comparatively weak support at the time.
+  I started this project almost entirely from a desire to add jokers to make the non-Heart suits better because they had comparatively weak support at the time.
 
-  -Petili's Dex entry talks about its leaves being reinvigorating, applied that to gaining a burst of energy for the last hand of the round. It was given spades
+  -Petilil's Dex entry talks about its leaves being reinvigorating, so I applied that to gaining a burst of energy for the last hand of the round. It was given spades
     due to the Lilligants having association with dancing, and the World Tarot card has a dancer on it.
 
   -Lilligant's Dex entry mentions how difficult it is to take care of, often withering at the slightest lapse in maintenance. I attempted to re-create these maintenance
     difficulties by including a rather harsh punishment for playing the wrong suit, but to otherwise give a reasonably strong payout for a spade deck.
 
-  -I'm currently not thrilled how Lilligant-H works, but its Dex entries give little to nothing to work with, and I wanted to try theming it around a Sun-based effect
+  -I'm currently not thrilled with how Lilligant-H works, but its Dex entries give little to nothing to work with, and I wanted to try theming it around a Sun-based effect
     as best as I could for an environment with no weather effects. It does function quite similarly to Exeggutor, which is partly why I'm unhappy with it.
 
 -
@@ -123,7 +123,7 @@ And now for the other jokers that came after my mission to make non-Heart suits 
     to tie in with it's "signature" move Solar Blade, and the fact that its mantis-y nature to eat things. This led us to having Lurantis scale of off destorying hearts,
     which has played better than we expected, but might still need some tweaks to offset how strong removing 13 cards in 4-5 rounds is.
 
-  -Pokermon didn't have a heart enabler (cleffa, igglybuff) yet, so tying that to Fomantis who is known to take energy from the sun, (tied back to the Sun Tarot card)
+  -Pokermon didn't have a heart enabler (cleffa, igglybuff, etc.) yet, so tying that to Fomantis who is known to take energy from the sun, (tied back to the Sun Tarot card)
     to help its evolved form seemed reasonable. Hitting all 4 opportunities for a Sun card isn't as easy as it may sound, which helps keep it in check.
 
 ---
@@ -133,10 +133,11 @@ And now for the other jokers that came after my mission to make non-Heart suits 
 Last but not least, we have the problem child, my best effort to introduce Negative playing cards without having it become clearly the most broken thing in the mod:
 
   As mentioned, this idea started from me trying to tastefully implement Negative playing cards. I tried to think throw what I would have to do to keep them in the
-  balance before I picked a Pokemon to attach it to. A reoccuring source of Negative cards on a Joker pretty much out of the question, which led me to looking for
-  a one time effect to spawn/convert a limited number of Negative cards. Selling Giratina to make a voucher for this effect was the first thing I came up with, and to 
-  this point I haven't thought of anything better that also checks the rest of the boxes I had in mind. After the player has a Negative card, if there's no downside 
-  attached to it, things are bound to get broken very quickly thanks to relentless abuse of the Death Tarot card and the near-infinite potential with held-in-hand effects. 
-  This leads us to the downside, preventing the player from ever finding another Death, forcing them to either rely on copy effects (note Metal Coat is changed in this 
-  add-on to not copy the Negative edition of anything) or making sure they hold onto a Death before they activate Giratina's effect, to make more with the Fool Tarot card.
-  I feel I could test this concept for hours by myself and still not have an accurate judgment of how strong it is, which is why I've left it in to be judged by others.
+  balance before I picked a Pokemon to attach it to, but eventually landed on Giratina. A reoccuring source of Negative cards on a Joker is pretty much out of the question, 
+  which led me to looking for a one time effect to spawn/convert a limited number of Negative cards. Selling Giratina to make a voucher for this effect was the first thing 
+  I came up with, and to this point I haven't thought of anything better that also checks the rest of the boxes I had in mind. After the player has a Negative card, if there's 
+  no downside attached to it, things are bound to get broken very quickly thanks to relentless abuse of the Death Tarot card and the near-infinite potential with held-in-hand 
+  effects. This leads us to the downside, preventing the player from ever finding another Death, forcing them to either rely on copy effects (note Metal Coat is changed in this 
+  add-on to not copy the Negative edition of anything) or making sure they hold onto a Death before they activate Giratina's effect, to make more with the Fool Tarot card, 
+  effectively losing a consumable slot permanently. I feel I could test this concept for hours by myself and still not have an accurate judgment of how strong it is, which 
+  is why I've left it in to be judged by others.
