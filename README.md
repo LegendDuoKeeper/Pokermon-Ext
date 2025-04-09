@@ -23,22 +23,30 @@ Currently adds:
   -Shaymin + Sky Forme (Designed by TekkyAnonymous)
   
   1 New Voucher
+  
   -Distortion (Also very Experimental)
   
   1 New Item
+
   -Honey (Art by DaleWillFail) (Still being tweaked)
   
   1 Balance change
+
   -Metal Coat makes a Steel editionless copy of selected card when selected card is Negative (Only relevant for Giratina and/or additional mods)
 
 Basically everything here likely needs some amount of small tweaks, with some more obvious offenders who are due for some larger ones, but hopefully
 the theming for them is appreciated and some of these become proper additions after those tweaks.
 
 To do list:
+
   -Add a proper config menu, including an on/off toggle for more experimental elements
+
   -Potentially rework Shaymins, Lilligant-Hisui, Cutiefly/Ribombee, and Lycanroc-Day after getting more outside feedback
+
   -Pretty up descriptions on certain jokers
+
   -Request and/or implement a way to prevent certain jokers from being called by pokeball items (Diancie, Shaymin-Sky Forme)
+
   -Get sidetracked by other ideas and make more jokers before finishing above tasks
 
 Known issues:
