@@ -126,10 +126,14 @@ Last but not least, we have the problem child, my best effort to introduce Negat
 
   - As mentioned, this idea started from me trying to tastefully implement Negative playing cards. I tried to think throw what I would have to do to keep them in the
     balance before I picked a Pokemon to attach it to, but eventually landed on Giratina. A reoccuring source of Negative cards on a Joker is pretty much out of the question, 
-    which led me to looking for a one time effect to spawn/convert a limited number of Negative cards. Selling Giratina to make a voucher for this effect was the first thing 
-    I came up with, and to this point I haven't thought of anything better that also checks the rest of the boxes I had in mind. After the player has a Negative card, if there's 
-    no downside attached to it, things are bound to get broken very quickly thanks to relentless abuse of the Death Tarot card and the near-infinite potential with held-in-hand 
-    effects. This leads us to the downside, preventing the player from ever finding another Death, forcing them to either rely on copy effects (note Metal Coat is changed in this 
+    which led me to looking for a one time effect to spawn/convert a limited number of Negative cards. 
+
+    Selling Giratina to make a voucher for this effect was the first thing I came up with, and to this point I haven't thought of anything better that also checks the rest of 
+    the boxes I had in mind. After the player has a Negative card, if there's no downside attached to it, things are bound to get broken very quickly thanks to relentless abuse 
+    of the Death Tarot card and the near-infinite potential with held-in-hand effects. 
+
+    This leads us to the downside, preventing the player from ever finding another Death, forcing them to either rely on copy effects (note Metal Coat is changed in this 
     add-on to not copy the Negative edition of anything) or making sure they hold onto a Death before they activate Giratina's effect, to make more with the Fool Tarot card, 
-    effectively losing a consumable slot permanently. I feel I could test this concept for hours by myself and still not have an accurate judgment of how strong it is, which 
-    is why I've left it in to be judged by others.
+    effectively losing a consumable slot permanently. 
+
+    I feel I could test this concept for hours by myself and still not have an accurate judgment of how strong it is, which is why I've left it in to be judged by others.
