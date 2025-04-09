@@ -1,15 +1,25 @@
 An add-on to the Pokermon mod (original mod and credit to creator in "About")
+
 Currently adds:
 
   9 new pokemon lines:
+
   -Giratina (Very Experimental)
+
   -Petilil + both Lilligants
+
   -Joltik + Galvantula (Co-designed with Beoulve)
+
   -Carbink + Diancie and Mega Diancie (some liberties were taken grouping these two together)
+
   -Cutiefly + Ribombee
+
   -Rockruff + 3 Lycanrocs
+
   -Fomantis + Lurantis (Co-designed with Beoulve)
+
   -Alolan Vulpix + Ninetales (Designed by TekkyAnonymous)
+
   -Shaymin + Sky Forme (Designed by TekkyAnonymous)
   
   1 New Voucher
