@@ -124,8 +124,8 @@ And now for the other jokers that came after my mission to make non-Heart suits 
 
 Last but not least, we have the problem child, my best effort to introduce Negative playing cards without having it become clearly the most broken thing in the mod:
 
-  - As mentioned, this idea started from me trying to tastefully implement Negative playing cards. I tried to think throw what I would have to do to keep them in the
-    balance before I picked a Pokemon to attach it to, but eventually landed on Giratina. A reoccuring source of Negative cards on a Joker is pretty much out of the question, 
+  - As mentioned, this idea started from me trying to tastefully implement Negative playing cards. I tried to think through what I would have to do to keep Negative cards 
+    balanced before I picked a Pokemon to attach them to, but eventually landed on Giratina. A reoccuring source of Negative cards on a Joker is pretty much out of the question, 
     which led me to looking for a one time effect to spawn/convert a limited number of Negative cards. 
 
     Selling Giratina to make a voucher for this effect was the first thing I came up with, and to this point I haven't thought of anything better that also checks the rest of 
