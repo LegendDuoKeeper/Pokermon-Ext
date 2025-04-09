@@ -114,8 +114,8 @@ And now for the other jokers that came after my mission to make non-Heart suits 
     honey from. These 2 are still very new and haven't had much testing.
 
   - We started with Lurantis before Fomantis for this line, and after scrapping a few ideas we wanted to sort of combine a dagger-esque effect with a Sun-powered theme 
-    to tie in with it's "signature" move Solar Blade, and the fact that its mantis-y nature to eat things. This led us to having Lurantis scale of off destorying hearts,
-    which has played better than we expected, but might still need some tweaks to offset how strong removing 13 cards in 4-5 rounds is.
+    to tie in with it's "signature" move Solar Blade, and its mantis-y nature to eat things. This led us to having Lurantis scale of off destorying hearts, which has
+    played better than we expected, but might still need some tweaks to offset how strong removing 13 cards in 4-5 rounds is.
 
     Pokermon didn't have a heart enabler (cleffa, igglybuff, etc.) yet, so tying that to Fomantis who is known to take energy from the sun, (tied back to the Sun Tarot card)
     to help its evolved form seemed reasonable. Hitting all 4 opportunities for a Sun card isn't as easy as it may sound, which helps keep it in check.
