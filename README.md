@@ -41,7 +41,7 @@ Currently adds:
   
   1 Balance change
 
-  - Metal Coat makes an editionless Steel copy of selected card if selected card is Negative (Only relevant for Giratina and/or additional mods)
+  - Metal Coat will now make an editionless Steel copy of selected card if selected card is Negative (Only relevant for Giratina and/or additional mods)
 
 ---
 
