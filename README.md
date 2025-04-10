@@ -37,7 +37,7 @@ Currently adds:
   
   1 New Item
 
-  - Honey (Art by DaleWillFail) (Still being tweaked)
+  - Honey (Concept Co-designed with Beoulve, Art by DaleWillFail) (Still being tweaked)
 
 ---
   
@@ -127,15 +127,17 @@ And now for the other jokers that came after my mission to make non-Heart suits 
 Last but not least, we have the problem child, my best effort to introduce Negative playing cards without having it become clearly the most broken thing in the mod:
 
   - As mentioned, this idea started from me trying to tastefully implement Negative playing cards. I tried to think through what I would have to do to keep Negative cards 
-    balanced before I picked a Pokemon to attach them to, but eventually landed on Giratina. A reoccuring source of Negative cards on a Joker is pretty much out of the question, 
-    which led me to looking for a one time effect to spawn/convert a limited number of Negative cards. 
+    balanced before I picked a Pokemon to attach them to, but eventually landed on Giratina, in an attempt to flavor the Negative cards as its Distortion taking hold.
+    A reoccuring source of Negative cards on a Joker is pretty much out of the question, which led me to looking for a one time effect to spawn/convert a limited number
+    of Negative cards. 
 
     Selling Giratina to make a voucher for this effect was the first thing I came up with, and to this point I haven't thought of anything better that also checks the rest of 
     the boxes I had in mind. After the player has a Negative card, if there's no downside attached to it, things are bound to get broken very quickly thanks to relentless abuse 
     of the Death Tarot card and the near-infinite potential with held-in-hand effects. 
 
-    This leads us to the downside, preventing the player from ever finding another Death, forcing them to either rely on copy effects (note Metal Coat is changed in this 
-    add-on to not copy the Negative edition of anything) or making sure they hold onto a Death before they activate Giratina's effect, to make more with the Fool Tarot card, 
-    effectively losing a consumable slot permanently. 
+    This leads us to the downside, after buying Giratina's voucher to make a random card you own Negative, the voucher also prevents the player from ever finding another Death,
+    forcing them to either rely on copy effects (note Metal Coat is changed in this add-on to not copy the Negative edition of anything) or making sure they hold onto a Death
+    before they activate Giratina's effect, to make more with the Fool Tarot card. This effectively costs a consumable slot permanently-ish, and slows down how quickly you can
+    make your whole deck Negative. 
 
     I feel I could test this concept for hours by myself and still not have an accurate judgment of how strong it is, which is why I've left it in to be judged by others.
