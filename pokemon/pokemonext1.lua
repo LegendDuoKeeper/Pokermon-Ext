@@ -248,7 +248,7 @@ local carbink={
   name = "carbink", 
   no_pool_flag="carbanana_mutate",
   pos = {x = 11, y = 3},
-  config = {extra = {diamonds = 0, odds = 250, percent = 0, delete = false, rolled = false}},
+  config = {extra = {diamonds = 0, odds = 200, percent = 0, delete = false, rolled = false}},
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
     local diamonds = 0
