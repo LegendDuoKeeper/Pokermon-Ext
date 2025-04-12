@@ -17,6 +17,8 @@ local petilil={
   stage = "Basic", 
   ptype = "Grass",
   atlas = "Pokedex5",
+  perishable_compat = false,
+  eternal_compat = false,
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.individual and context.cardarea == G.play and not context.other_card.debuff and context.other_card:is_suit(card.ability.extra.suit) then
@@ -61,6 +63,8 @@ local lilligant={
   stage = "One", 
   ptype = "Grass",
   atlas = "Pokedex5",
+  perishable_compat = false,
+  eternal_compat = false,
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.joker_main then
@@ -128,6 +132,8 @@ local lilliganth={
   stage = "One", 
   ptype = "Fighting",
   atlas = "Regionals",
+  perishable_compat = true,
+  eternal_compat = false,
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.individual and context.cardarea == G.play and context.other_card:is_suit(card.ability.extra.suit) then
@@ -271,6 +277,8 @@ local carbink={
   stage = "Basic", 
   ptype = "Fairy",
   atlas = "Pokedex6",
+  perishable_compat = true,
+  eternal_compat = false,
   blueprint_compat = false,
   calculate = function(self, card, context)
     if context.first_hand_drawn and not context.blueprint then
@@ -360,6 +368,8 @@ local diancie={
   stage = "Legendary", 
   ptype = "Fairy",
   atlas = "Pokedex6",
+  perishable_compat = false,
+  eternal_compat = true,
   blueprint_compat = true,
   calculate = function(self, card, context)
     if context.individual and context.cardarea == G.play and not context.other_card.debuff and context.other_card:is_suit(card.ability.extra.suit) then
