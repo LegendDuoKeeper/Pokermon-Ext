@@ -35,8 +35,8 @@ return {
                 name = "Lilligant",
                 text = {
                   "Gains {X:red,C:white}X#2#{} Mult for every {C:attention}15{} scored",
-                  "{C:spades}Spades{} and loses {X:red,C:white}X#3#{} Mult for every",
-                  "played card that isn't a {C:spades}Spade{}",
+                  "{C:spades}Spades{} and loses {X:red,C:white}X#3#{} Mult for each",
+                  "scored card that isn't a {C:spades}Spade{}",
                   "{C:mult}Self destructs{} when below {X:red,C:white}X1{} Mult",
                   "{C:inactive,s:0.8}(Currently {X:red,C:white}X#1#{C:inactive,s:0.8} Mult, {C:attention,s:0.8}#4#{}{C:inactive,s:0.8}/15 {C:spades,s:0.8}Spades{C:inactive,s:0.8} scored)"
                 }
@@ -44,8 +44,8 @@ return {
             j_poke_ext_lilliganth = {
                 name = "Lilligant-Hisui",
                 text = {
-                    "Played {C:spades}Spades{} have a {C:green}#2# in #3#{}",
-                    "chance to give {X:red,C:white}X#1#{} Mult when scored",
+                    "{C:green}#2# in #3#{} chance for played {C:spades}Spade{}",
+                    "cards to give {X:red,C:white}X#1#{} Mult when scored",
                     "Chance increases by 1 for each",
                     "{X:fire,C:white}Fire{} Joker you have"
                 }
@@ -99,8 +99,8 @@ return {
                 text = {
                     "{C:attention}Retrigger{} each played {C:diamonds}Diamond{}",
                     "{br:2.5}text needs to be here to work",
-                    "Played {C:diamonds}Diamond{} cards",
-                    "give {X:red,C:white}X#1#{} Mult and {C:gold}$1{} when scored",
+                    "Played {C:diamonds}Diamond{} cards give",
+                    "{X:red,C:white}X#1#{} Mult and {C:gold}$1{} when scored",
                 }
             },
             j_poke_ext_cutiefly = {
@@ -158,7 +158,7 @@ return {
             j_poke_ext_fomantis = {
                 name = "Fomantis",
                 text = {
-                  "After scoring {C:attention}#1#{C:hearts} Hearts{},",
+                  "After scoring {C:attention}#1#{C:hearts} Heart{} cards,",
                   "Create a {C:attention}Sun{} card at end of round",
                   "No longer makes {C:attention}Sun{} cards after {C:attention}4{} rounds",
                   "{C:inactive}(Currently {C:attention}#2#{C:inactive}/{C:attention}#1#{C:inactive}) (Must have room)",
@@ -168,11 +168,12 @@ return {
             j_poke_ext_lurantis = {
                 name = "Lurantis",
                 text = {
-                  "If the leftmost scored card is {C:hearts}Hearts{}, destroy it.",
+                  "If the leftmost scored card in",
+                  "played hand is a {C:hearts}Heart{}, destroy it",
                   "{br:3.5}text needs to be here to work",
-                  "Gains {X:red,C:white}X#2#{} Mult per {C:hearts}Heart{} that is",
-                  "destroyed. Gain {X:red,C:white}X0.3{} Mult instead if",
-                  "that card had an {C:attention}Enhancement{}.",
+                  "Gains {X:red,C:white}X#2#{} Mult per {C:hearts}Heart{} card",
+                  "destroyed, this gain is doubled if",
+                  "destroyed card had an {C:attention}Enhancement{}",
                   "{C:inactive}(Currently: {X:red,C:white}X#1#{}{C:inactive} Mult){}"
                 }
             },
@@ -211,7 +212,7 @@ return {
                 text = {
                     "+1 Shop Slot",
                     "Use to create",
-                    "a{C:attention} Shiny{} tag",
+                    "a{C:colorless} Shiny{} tag",
                 },
             },
         },
@@ -221,10 +222,10 @@ return {
             v_poke_ext_distortion = {
                 name = "Distortion",
                 text = {
-                    "Replaces Edition of a",
+                    "Replaces {C:attention}Edition{} of a",
                     "random playing card in deck",
-                    "with Negative, Death Tarot",
-                    "cards no longer spawn"
+                    "with {C:dark_edition}Negative{}, {C:attention}Death{} {C:tarot}Tarot{}",
+                    "cards no longer appear"
                 },
             },
         },
