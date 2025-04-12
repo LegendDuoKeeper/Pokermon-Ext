@@ -45,9 +45,9 @@ return {
                 name = "Lilligant-Hisui",
                 text = {
                     "Played {C:spades}Spades{} have a {C:green}#2# in #3#{}",
-                    "chance to give {X:red,C:white}X#1#{} when scored",
+                    "chance to give {X:red,C:white}X#1#{} Mult when scored",
                     "Chance increases by 1 for each",
-                    "{X:fire,C:white}Fire{} joker you have"
+                    "{X:fire,C:white}Fire{} Joker you have"
                 }
             },
             j_poke_ext_joltik = {
@@ -56,6 +56,7 @@ return {
                   "{C:attention}Drain {C:money}$#1#{} from all other",
                   "Jokers at end of shop",
                   "{br:3.5}text needs to be here to work",
+                  "When this Joker evolves,",
                   "Create a {C:dark_edition}Negative {C:attention}Devil{} for each",
                   "{C:money}$6{} of sell value this joker has",
                   "{C:inactive,s:0.8}(Evolves after {C:attention,s:0.8}#2#{C:inactive,s:0.8} rounds)",
@@ -69,7 +70,7 @@ return {
                   "all scored {C:attention}Gold{} cards",
                   "{br:3.5}text needs to be here to work",
                   "Gains {C:mult}+#2#{} Mult and {C:money}$#4#{} per",
-                  "enchantment removed",
+                  "enhancement removed",
                   "{C:inactive,s:0.8}(Currently gives {C:mult}+#1#{} {C:inactive,s:0.8}Mult",
                   "{C:inactive,s:0.8} and earns {C:money}$#3#{C:inactive,s:0.8}/#5# at end of round)"
                 }
