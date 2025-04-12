@@ -233,7 +233,7 @@ local galvantula={
       if context.joker_main then
         return {
           message = "Discharge!",
-          colour = G.C.BLACK,
+          colour = G.C.RED,
           mult = card.ability.extra.mult
         }
       end
