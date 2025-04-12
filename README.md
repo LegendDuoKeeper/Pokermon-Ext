@@ -56,8 +56,6 @@ To do list:
 
   - Potentially rework Shaymins, Lilligant-Hisui, Cutiefly/Ribombee, and Lycanroc-Day after getting more outside feedback
 
-  - Pretty up descriptions on various things
-
   - Request and/or implement a way to prevent certain jokers from being called by pokeball items (Diancie, Shaymin-Sky Forme)
 
   - Get Tekky to make similarly long-winded writeups for his jokers
