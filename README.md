@@ -56,7 +56,7 @@ To do list:
 
   - Potentially rework Shaymins, Lilligant-Hisui, Cutiefly/Ribombee, and Lycanroc-Day after getting more outside feedback
 
-  - Pretty up descriptions on certain jokers
+  - Pretty up descriptions on various things
 
   - Request and/or implement a way to prevent certain jokers from being called by pokeball items (Diancie, Shaymin-Sky Forme)
 
@@ -72,7 +72,7 @@ Known issues:
 
   - Carbink and Rockruff sometimes display an inaccurate total, cause currently unknown
 
-  - Diancie is currently an Uncommon joker for testing purposes, it probably will go back to Rare
+  - Several Jokers are currently a rarity stage below where they should likely end up to make more natural tests easier
 
 ---
 
