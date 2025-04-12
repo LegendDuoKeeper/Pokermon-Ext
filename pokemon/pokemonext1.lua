@@ -380,8 +380,7 @@ local diancie={
       end
     end
   end,
-  -- Temporary solution to modded megas not being properly supported, mega evolving works like this, but will crash on selling mega stone or devolving
-  megas = {"ext_mega_diancie"}
+  megas = {"mega_diancie"}
 }
 -- Diancie-Mega
 local mega_diancie={
@@ -401,7 +400,7 @@ local mega_diancie={
   atlas = "Megas",
   blueprint_compat = true,
   calculate = function(self, card, context)
-    if context.individual and context.cardarea == G.play and not context.other_card.debuff then
+    if context.individual and context.cardarea == G.play and not context.other_card.debuff and context.other_card:is_suit(card.ability.extra.suit) then
       if not context.end_of_round and not context.before and not context.after and not context.other_card.debuff then
         local earned = ease_poke_dollars(card, "mega_diancie", card.ability.extra.money_mod, true)
           return {
