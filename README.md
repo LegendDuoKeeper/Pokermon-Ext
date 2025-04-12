@@ -63,8 +63,6 @@ To do list:
 
 Known issues:
 
-  - Attempting to unevolve Mega-Diancie crashes due to a conflict with the mega code and outside additions
-
   - Giratina is really wacky and may either be scrapped or moved to a different pokemon with better theming, but also needs more outside feedback
 
   - Carbink and Rockruff sometimes display an inaccurate total, cause currently unknown
