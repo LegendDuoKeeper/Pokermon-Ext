@@ -114,7 +114,7 @@ And now for the other jokers that came after my mission to make non-Heart suits 
     Thunder Stones. We worked on Galvantula before hazards were added, and despite it probably being a good fit for hazards, we currently have no plans to change it.
 
   - Cutiefly and Ribombee are bees with the ability Honey Gather, which led me to giving them an item based payoff that gets better with more Grass pokemon to collect
-    honey from. These 2 are still very new and haven't had much testing.
+    pollen from, with Ribombee's being clearly more Honey related, as you can tell with the Honey item we've added. These 2 are still very new and haven't had much testing.
 
   - We started with Lurantis before Fomantis for this line, and after scrapping a few ideas we wanted to sort of combine a dagger-esque effect with a Sun-powered theme 
     to tie in with it's "signature" move Solar Blade, and its mantis-y nature to eat things. This led us to having Lurantis scale of off destorying hearts, which has
