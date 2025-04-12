@@ -57,6 +57,8 @@ To do list:
 
   - Request and/or implement a way to prevent certain jokers from being called by pokeball items (Diancie, Shaymin-Sky Forme)
 
+  - Get Tekky to make similarly long-winded writeups for his jokers
+
   - Get sidetracked by other ideas and make more jokers before finishing above tasks
 
 ---
