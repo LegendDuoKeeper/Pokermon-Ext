@@ -97,7 +97,7 @@ Short-ish explanation for why each joker does what it does:
     concept of having the form you get be based off of the total number of clubs in your deck, but it feels like the numbers still need some work.
 
     Lycanroc-Day's effect is the one I'm least happy with. My initial vision with this line was to encourage a play pattern that included using Lycanroc-Day to both help you
-    get to the other forms, and make them better when you got to them. However, making this play pattern feel good has been difficult, and the themingbehind Day form copying
+    get to the other forms, and make them better when you got to them. However, making this play pattern feel good has been difficult, and the theming behind Day form copying
     cards is almost non-existant. These 2 factors will likely lead to me redoing this form's effect, but it also depends on what feedback it ends up getting.
 
     On the other hand, I am rather happy with where the other 2 forms are at. Lycanroc-Night is a strong but kinda slow scaling joker, and Lycanroc-Dusk is the
