@@ -93,9 +93,9 @@ Short-ish explanation for why each joker does what it does:
   - Rockruff and co. are loosely tied to a werewolf type gimmick, which ties in to the Moon Tarot card for Clubs, which rounds out each of the suits. I really like the 
     concept of having the form you get be based off of the total number of clubs in your deck, but it feels like the numbers still need some work.
 
-    Lycanroc-Day's effect is the one I'm least happy with. My initial vision with this line was to encourage a play pattern that included using Lycanroc-Day
-    to both help you get to the other forms, and make them better when you got to them. However, making this play pattern feel good has been difficult, and the theming
-    behind Day form copying cards is almost non-existant. These 2 factors will likely lead to me redoing this form's effect depending on what feedback it ends up getting.
+    Lycanroc-Day's effect is the one I'm least happy with. My initial vision with this line was to encourage a play pattern that included using Lycanroc-Day to both help you
+    get to the other forms, and make them better when you got to them. However, making this play pattern feel good has been difficult, and the themingbehind Day form copying
+    cards is almost non-existant. These 2 factors will likely lead to me redoing this form's effect, but it also depends on what feedback it ends up getting.
 
     On the other hand, I am rather happy with where the other 2 forms are at. Lycanroc-Night is a strong but kinda slow scaling joker, and Lycanroc-Dusk is the
     big payoff for successfully navigating the "dilemma" of sorts the Rockruff timer was supposed to present.
