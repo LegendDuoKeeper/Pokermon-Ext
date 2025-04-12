@@ -51,6 +51,8 @@ To do list:
 
   - Add a proper config menu, including an on/off toggle for more experimental elements
 
+  - Think of a better name for the branch
+
   - Potentially rework Shaymins, Lilligant-Hisui, Cutiefly/Ribombee, and Lycanroc-Day after getting more outside feedback
 
   - Pretty up descriptions on certain jokers
