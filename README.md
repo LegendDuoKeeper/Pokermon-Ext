@@ -60,8 +60,6 @@ To do list:
 
   - Request and/or implement a way to prevent certain jokers from being called by pokeball items (Diancie, Shaymin-Sky Forme)
 
-  - Get Tekky to make similarly long-winded writeups for his jokers
-
   - Get sidetracked by other ideas and make more jokers before finishing above tasks
 
 ---
@@ -125,7 +123,18 @@ And now for the other jokers that came after my mission to make non-Heart suits 
 
 ---
 
-  (Writeups for Tekky's Jokers go here)
+Surprise, a wild Tekky appeared! I got in a bit later than the others on this project and just kinda went off and did my own thing with it, but, here were my ideas:
+
+  - Alolan Ninetales is a Pokemon I use a lot competitively, and figured the card would be a fun one to design. I liked the idea of regional variants just being variations
+    of the normal Pokemon that change how they're used, and used the idea of played 9's triggering effects randomly to build them. A-Ninetale's dex entry doesn't state anything
+    too interesting to use as a card effect, so I went with what makes A-Ninetales unique to me: Aurora Veil. Polychromes seemed like they made the most sense for Auroras, then I
+    worked backwards to triggering Aura effects on Vulpix. It's a relatively strong effect, so the line is locked behind higher rarity.
+  
+  - Shaymin was one I liked initially but didn't spend a lot of time on, in all honesty. Shaymin-Land is known for cleansing poisons and standing in fields of flowers, while Sky
+    Forme is known for its gifts to others. It being Legendary rarity, I wanted a strong effect as well, so I gave it a X Mult effect based on cleansing cards, then evolving into
+    a powerful boost joker using that built up multiplier.
+
+---
 
 Last but not least, we have the problem child, my best effort to introduce Negative playing cards without having it become clearly the most broken thing in the mod:
 
