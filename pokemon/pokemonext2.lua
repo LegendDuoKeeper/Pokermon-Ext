@@ -132,7 +132,7 @@ local a_ninetales={
     cost = 10,
     stage = "One",
     atlas = "Regionals",
-    ptype = "Fairy",
+    ptype = "Water",
     blueprint_compat = true,
     loc_vars = function(self, info_queue, center)
         type_tooltip(self, info_queue, center)
