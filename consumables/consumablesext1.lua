@@ -1,3 +1,35 @@
+local beastball = {
+    name = "beastball",
+    key = "beastball",
+    set = "Spectral",
+    pos = { x = 5, y = 5 },
+    soul_pos = { x = 6, y = 5},
+    atlas = "Mart",
+    cost = 4,
+    pokeball = true,
+    hidden = true,
+    soul_set = "Item",
+    soul_rate = .003,
+    unlocked = true,
+    discovered = true,
+    can_use = function(self, card)
+      if #G.jokers.cards < G.jokers.config.card_limit or self.area == G.jokers then
+          return true
+      else
+          return false
+      end
+    end,
+    use = function(self, card, area, copier)
+      G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+          play_sound('timpani')
+          local _card = create_random_poke_joker("beastball", "Ultra Beast")
+          _card:add_to_deck()
+          G.jokers:emplace(_card)
+          return true end }))
+      delay(0.6)
+    end
+  }
+
 local honey = {
     name = "Honey",
     -- poke_custom_prefix = "poke_ext",
@@ -35,5 +67,5 @@ local honey = {
     end,
 }
 return {name = "Additional Consumables",
-list = {honey,},
+list = {beastball, honey,},
 }

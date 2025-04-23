@@ -204,6 +204,14 @@ return {
                 "when sold"
                 }
             },
+            j_poke_ext_stakataka = {
+                name = "Stakataka",
+                text = {
+                    "Adds your {C:attention}last played hand's",
+                    "base {C:chips}chips{} and {C:mult}mult{} to played hand",
+                    "{C:inactive,s:0.8}Currently giving {C:chips,s:0.8}+#1#{C:inactive,s:0.8} and {C:mult,s:0.8}+#2#"
+                }
+            }
         },
 
         Spectral = {
@@ -213,6 +221,14 @@ return {
                     "+1 Shop Slot",
                     "Use to create",
                     "a{C:colorless} Shiny{} tag",
+                },
+            },
+            c_poke_ext_beastball = {
+                name = "Beast Ball",
+                text = {
+                      "Create a random",
+                      "{C:attention}Ultra Beast Pokemon Joker{} card",
+                      "{C:inactive}(Must have room)"
                 },
             },
         },
@@ -228,6 +244,17 @@ return {
                     "cards no longer appear"
                 },
             },
+        },
+    },
+
+    misc = {
+        labels = {
+            k_poke_ext_ultrabeast = "Ultra Beast",
+        },
+        dictionary = {
+            k_poke_ext_ultrabeast = "Ultra Beast",
+
+            poke_ext_stack_ex = "Assemble!"
         },
     }
 }

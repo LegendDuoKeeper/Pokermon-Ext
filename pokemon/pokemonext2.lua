@@ -175,7 +175,46 @@ local a_ninetales={
     end
 }
 
+local stakataka = {
+  name = "stakataka",
+  pos = {x = 12, y = 8},
+  soul_pos = {x = 13, y = 8},
+  rarity = "poke_ext_ultrabeast",
+  config = { extra = {
+    chips = 0,
+    mult = 0,
+    chips_var = 0,
+    mult_var = 0
+  }},
+  cost = 8,
+  stage = "Ultra Beast",
+  atlas = "Pokedex7",
+  ptype = "Earth",
+  blueprint_compat = true,
+  loc_vars = function(self, info_queue, center)
+    type_tooltip(self, info_queue, center)
+    return {vars = {center.ability.extra.chips, center.ability.extra.mult}}
+  end,
+  calculate = function(self, card, context)
+    if context.before then
+      card.ability.extra.chips_var = G.GAME.hands[context.scoring_name].chips
+      card.ability.extra.mult_var = G.GAME.hands[context.scoring_name].mult
+    end
+    if context.joker_main and (not (card.ability.extra.chips == 0 and card.ability.extra.mult == 0)) then
+      return {
+        message = localize("poke_ext_stack_ex"),
+        colour = G.C.XMULT,
+        chip_mod = card.ability.extra.chips,
+        mult_mod = card.ability.extra.mult
+      }
+    end
+    if context.final_scoring_step then
+      card.ability.extra.chips = card.ability.extra.chips_var
+      card.ability.extra.mult = card.ability.extra.mult_var
+    end
+  end
+}
 
 return {name = "Regional Pokemon Joker 1", 
-        list = {a_vulpix, a_ninetales, shaymin_land, shaymin_sky,},
+        list = {a_vulpix, a_ninetales, shaymin_land, shaymin_sky, stakataka},
 }

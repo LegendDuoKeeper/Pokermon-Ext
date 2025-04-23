@@ -1,0 +1,20 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+#Nested check
+[[patches]]
+[patches.module]
+source = "setup.lua"
+before = "main.lua"
+name = "pokermon-ext.setup"
+
+# Localization color
+[[patches]]
+[patches.pattern]
+target = "functions/misc_functions.lua"
+pattern = "legendary = G.C.RARITY[4],"
+position = "after"
+payload = "poke_ext_ultrabeast = G.C.RARITY['poke_ext_ultrabeast'],"
+match_indent = true
