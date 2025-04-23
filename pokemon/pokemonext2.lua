@@ -54,7 +54,7 @@ local shaymin_sky={
   rarity = 4,
   cost = 20,
   stage = "Legendary",
-  ptype = "Grass",
+  ptype = "Colorless",
   atlas = "Pokedex4",
   blueprint_compat = true,
   loc_vars = function(self, info_queue, center)
@@ -84,7 +84,7 @@ local shaymin_sky={
 local a_vulpix={
     name = "a_vulpix",
     pos = {x = 5, y = 0},
-    config = {extra = {odds = 6}},
+    config = {extra = {odds = 4, limit = 1, triggers = 0}},
     rarity = 3,
     cost = 8,
     item_req = "icestone",
@@ -93,33 +93,44 @@ local a_vulpix={
     ptype = "Water",
     blueprint_compat = true,
     loc_vars = function(self, info_queue, center)
-        type_tooltip(self, info_queue, center)
-        info_queue[#info_queue+1] = G.P_CENTERS.c_poke_icestone
-        info_queue[#info_queue+1] = G.P_CENTERS.c_aura
-        return {vars = {''..(G.GAME and G.GAME.probabilities.normal or 1), center.ability.extra.odds}}
+      type_tooltip(self, info_queue, center)
+      info_queue[#info_queue+1] = G.P_CENTERS.c_poke_icestone
+      if not center.edition or (center.edition and not center.edition.polychrome) then
+        info_queue[#info_queue+1] = G.P_CENTERS.e_polychrome
+      end
+      if not center.edition or (center.edition and not center.edition.foil) then
+        info_queue[#info_queue+1] = G.P_CENTERS.e_foil
+      end
+      if not center.edition or (center.edition and not center.edition.holo) then
+        info_queue[#info_queue+1] = G.P_CENTERS.e_holo
+      end
+      info_queue[#info_queue+1] = {set = 'Other', key = 'designed_by', vars = {"TekkyAnonymous"}}
+      return {vars = {''..(G.GAME and G.GAME.probabilities.normal or 1), center.ability.extra.odds, center.ability.extra.limit, center.ability.extra.triggers}}
     end,
     calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play then
-            if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-                if (context.other_card:get_id() == 9) and (not context.other_card.debuff) and (pseudorandom('a_vulpix') < G.GAME.probabilities.normal/card.ability.extra.odds) then
-                    G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-                    return {
-                        extra = {focus = card, message = localize('k_plus_spectral'), colour = G.C.SECONDARY_SET.Spectral, func = function()
-                            G.E_MANAGER:add_event(Event({
-                                trigger = 'before',
-                                delay = 0.0,
-                                func = function()
-                                    local _card = create_card('Spectral', G.consumeables, nil, nil, nil, nil, 'c_aura')
-                                    _card:add_to_deck()
-                                    G.consumeables:emplace(_card)
-                                    G.GAME.consumeable_buffer = 0
-                                return true
-                            end}))
-                        end},
-                    }
-                end
-            end
+      if context.before and context.cardarea == G.jokers and not context.blueprint then
+        for k, v in ipairs(context.scoring_hand) do
+          if(v:get_id() == 9) and (not v.debuff) and (pseudorandom('a_vulpix') < G.GAME.probabilities.normal/card.ability.extra.odds) then
+            local edition = poll_edition('aura', nil, true, true)
+            G.E_MANAGER:add_event(Event({
+              trigger = "after",
+              delay = 0.5,
+              func = function()
+                v:set_edition(edition, true, true)
+                v:juice_up()
+                return true
+              end
+            }))
+            return {
+              message = localize('poke_ext_aurora_ex'),
+              colour = G.C.CHIPS
+            }
+          end
         end
+      end
+      if not context.repetition and not context.individual and context.joker_main then
+          card.ability.extra.triggers = 0
+      end
         return item_evo(self, card, context, "j_poke_ext_a_ninetales")
     end
 }
@@ -132,7 +143,7 @@ local a_ninetales={
     cost = 10,
     stage = "One",
     atlas = "Regionals",
-    ptype = "Fairy",
+    ptype = "Water",
     blueprint_compat = true,
     loc_vars = function(self, info_queue, center)
         type_tooltip(self, info_queue, center)
@@ -161,7 +172,7 @@ local a_ninetales={
                     }))
                     card.ability.extra.triggers = card.ability.extra.triggers + 1
                     return {
-                        message = localize('k_copied_ex'),
+                        message = localize('poke_ext_aurora_ex'),
                         colour = G.C.CHIPS,
                         card = card,
                         playing_cards_created = {true}

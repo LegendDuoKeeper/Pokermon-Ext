@@ -229,5 +229,12 @@ return {
                 },
             },
         },
+    },
+
+    misc = {
+        dictionary = {
+            -- From Alolan Vulpix Line
+            poke_ext_aurora_ex = "Aurora!"
+        },
     }
 }
