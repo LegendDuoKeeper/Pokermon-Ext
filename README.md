@@ -50,7 +50,9 @@ Currently adds:
 
 To do list:
 
-  - Add a proper config menu, including an on/off toggle for more experimental elements
+  - Add a proper config menu, including an on/off toggle for more experimental elements 
+    (Note: This step is seemingly impossible at the time of first posting this publicly due to an oversight causing
+    the main mod's configs to overwrite this add-on's config file)
 
   - Think of a better name for the branch
 
