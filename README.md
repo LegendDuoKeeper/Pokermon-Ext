@@ -51,10 +51,11 @@ Currently adds:
 To do list:
 
   - Add a proper config menu, including an on/off toggle for more experimental elements 
-    (Note: This step is seemingly impossible at the time of first posting this publicly due to an oversight causing
-    the main mod's configs to overwrite this add-on's config file)
 
-  - Think of a better name for the branch
+  - (Note: The above step is seemingly impossible at the time of first posting this publicly due to the combination of my own 
+    inexperience as a coder, and what appears to be an oversight causing the main mod's configs to overwrite any config file assigned to this add-on)
+
+  - Think of a better name for the add-on
 
   - Potentially rework Shaymins, Lilligant-Hisui, Cutiefly/Ribombee, and Lycanroc-Day after getting more outside feedback
 
