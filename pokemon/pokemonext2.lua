@@ -53,7 +53,7 @@ local shaymin_sky={
   config = { extra = { Xmult = 1.5, Xmult_mod = 0.005 }},
   rarity = 4,
   cost = 20,
-  stage = "Legendary",
+  stage = "Other",
   ptype = "Colorless",
   atlas = "Pokedex4",
   blueprint_compat = true,

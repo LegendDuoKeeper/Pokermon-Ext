@@ -1,6 +1,6 @@
 {
-	"id": "Pokermon-Ext",
-	"name": "Pokermon-Ext",
+	"id": "Pokermon_Ext",
+	"name": "Pokermon_Ext",
 	"author": ["Team Ten Cent Burger, see credits"],
 	"description": "hi",
 	"prefix": "poke_ext",
@@ -13,7 +13,7 @@
 	"dependencies": [
 					"Steamodded (>=1.0.0~ALPHA-1423h)",
       		"Lovely (>=0.6)",
-			"Pokermon (>=2.7.0)"
+			"Pokermon (>=2.9.9)"
 	],
   "conflicts": [],
 	"provides": [],

@@ -11,6 +11,7 @@ local distortion = {
   unlocked = true,
   available = true,
   cost = 10,
+  giratina = true,
 	loc_vars = function(self, info_queue)
 		return { vars = {} }
 	end,

@@ -1,1 +1,1 @@
-return {["others"] = false}
+return {["pokeballs"]=true,["experimental_content"]=true,["enable_experimental"]=true,["enable_giratina"]=true,["gen_one"]=false,["others"]=false,["poke_enable_animations"]=true,["shiny_playing_cards"]=false,["precise_energy"]=true,["pokemon_altart"]=true,["pokemon_discovery"]=true,["no_evos"]=false,["pokemon_only"]=false,["pokemon_splash"]=true,["unlimited_energy"]=false,["pokemon_legacy"]=false,["jokers_only"]=false,["pokemon_num"]=true,["pokemon_aprilfools"]=false,}

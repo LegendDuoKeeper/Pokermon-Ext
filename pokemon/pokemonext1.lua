@@ -72,7 +72,6 @@ local lilligant={
         return {
           message = 'Petal Dance!',
           colour = G.C.XMULT,
-          mult_mod = card.ability.extra.mult,
           Xmult_mod = card.ability.extra.Xmult
         }
       elseif card.ability.extra.Xmult <= 1.0 then
@@ -118,7 +117,7 @@ local lilligant={
 local lilliganth={
   name = "lilliganth", 
   pos = {x = 8, y = 4},
-  config = {extra = {fire = 0, Xmult_multi = 1.5, suit = "Spades", odds = 1, odds2 = 8}},
+  config = {extra = {fire = 0, Xmult_multi = 1.5, suit = "Spades", odds = 1, odds2 = 6}},
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
     if G.playing_cards then
@@ -254,7 +253,7 @@ local carbink={
   name = "carbink", 
   no_pool_flag="carbanana_mutate",
   pos = {x = 11, y = 3},
-  config = {extra = {diamonds = 0, odds = 200, percent = 0, delete = false, rolled = false}},
+  config = {extra = {diamonds = 0, odds = 200, percent = 0, rolled = false}},
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
     local diamonds = 0
@@ -269,8 +268,7 @@ local carbink={
         center.ability.extra.percent = math.min((math.floor(center.ability.extra.diamonds / center.ability.extra.odds * 10000)) / 100, 100)
       end
     end
-    info_queue[#info_queue+1] = {key = 'percent_chance', set = 'Other', specific_vars = {center.ability.extra.percent}}
-    return {vars = {1, center.ability.extra.odds}}
+    return {vars = {1, center.ability.extra.odds, center.ability.extra.percent}}
   end,
   rarity = 1, 
   cost = 6, 
@@ -309,9 +307,7 @@ local carbink={
       end
         local mutate_chance = (card.ability.extra.diamonds / card.ability.extra.odds)
         local carbrandom = (pseudorandom("carbanana"))
-        card.ability.extra.delete = false
         if carbrandom < mutate_chance then
-          card.ability.extra.delete = true
           G.GAME.pool_flags.carbanana_mutate = true
           G.E_MANAGER:add_event(Event({
             func = function()
@@ -365,7 +361,7 @@ local diancie={
   end,
   rarity = 2, 
   cost = 9, 
-  stage = "Legendary", 
+  stage = "Other", 
   ptype = "Fairy",
   atlas = "Pokedex6",
   perishable_compat = false,
@@ -610,7 +606,7 @@ local lycanroc={
               G.deck.config.card_limit = G.deck.config.card_limit + 1
               table.insert(G.playing_cards, copy)
               -- If you want it to not place the duplicated card into the hand after duping and put it into the deck instead,
-              -- in line 206, change from G.hand:emplace(copy) to G.deck:emplace(copy)
+              -- 2 lines above this one, change from G.hand:emplace(copy) to G.deck:emplace(copy)
               G.hand:emplace(copy)
               copy.states.visible = nil
               G.E_MANAGER:add_event(Event({
@@ -748,7 +744,7 @@ local fomantis={
 local lurantis={
 name = "lurantis",
 pos = {x = 10, y = 2},
-config = {extra = {Xmult = 1, Xmult_mod = 0.15}},
+config = {extra = {Xmult = 1, Xmult_mod = 0.12}},
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
     return {vars = { center.ability.extra.Xmult, center.ability.extra.Xmult_mod }}
@@ -805,58 +801,12 @@ config = {extra = {Xmult = 1, Xmult_mod = 0.15}},
     end
   end
 }
--- Giratina
-local giratina={
-  name = "giratina",
-  no_pool_flag="giratina_sold",
-  pos = {x = 0, y = 8},
-  soul_pos = { x = 1, y = 8},
-  config = {extra = {}},
-  loc_vars = function(self, info_queue, center)
-    type_tooltip(self, info_queue, center)
-    info_queue[#info_queue+1] = G.P_CENTERS.v_poke_ext_distortion
-    return {vars = {}}
-  end,
-  rarity = 4,
-  cost = 20,
-  stage = "Legendary",
-  ptype = "Psychic",
-  atlas = "Pokedex4",
-  perishable_compat = false,
-  blueprint_compat = false,
-  eternal_compat = false,
-  calculate = function(self, card, context)
-    if context.selling_self then
-      if G.GAME.pool_flags.giratina_sold == false then
-        G.GAME.pool_flags.giratina_sold = true
-      end
-      if G.shop_vouchers and G.shop_vouchers.cards then 
-      local distortion_in_shop = false
-        if not distortion_in_shop then
-          for i = 1, #G.shop_vouchers.cards do
-            if G.shop_vouchers.cards[i].ability.name == "distortion" then
-              distortion_in_shop = true
-            end
-          end
-          if not G.GAME.used_vouchers.v_poke_ext_distortion and not distortion_in_shop then
-            G.shop_vouchers.config.card_limit = G.shop_vouchers.config.card_limit + 1
-            local _card = Card(G.shop_vouchers.T.x + G.shop_vouchers.T.w/2,
-            G.shop_vouchers.T.y, G.CARD_W, G.CARD_H, G.P_CARDS.empty, G.P_CENTERS['v_poke_ext_distortion'],{bypass_discovery_center = true, bypass_discovery_ui = true})
-            create_shop_card_ui(_card, 'Voucher', G.shop_vouchers)
-            _card:start_materialize()
-            G.shop_vouchers:emplace(_card)
-            added = true
-          end
-        end
-      end
-    end
-  end,
-}
+
 
 return {name = "Various Additional Jokers",
 -- list = {shaymin_land, shaymin_sky, petilil, lilligant, joltik, galvantula, carbink, diancie, mega_diancie, cutiefly, ribombee, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis,},
 -- }
 
-list = {petilil, lilligant, lilliganth, joltik, galvantula, carbink, diancie, mega_diancie, cutiefly, ribombee, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis, giratina,},
+list = {petilil, lilligant, lilliganth, joltik, galvantula, carbink, diancie, mega_diancie, cutiefly, ribombee, rockruff, lycanroc, lycanrocn, lycanrocd, fomantis, lurantis,},
 }
 
