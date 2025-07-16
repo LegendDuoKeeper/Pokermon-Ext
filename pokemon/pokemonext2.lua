@@ -5,7 +5,7 @@ local shaymin_land={
   poke_custom_prefix = "poke_ext",
   pos = {x = 10, y = 8},
   soul_pos = {x = 11, y = 8},
-  config = { extra = { Xmult = 1, eaten = 0, Xmult_mod = 0.005 }, evo_req = 20 },
+  config = { extra = {diff_eaten = 0, freeze = 'Yes', para = 'Yes', burn = 'Yes', sleep = 'Yes', poison = 'Yes'}, evo_req = 5},
   rarity = 4,
   cost = 20,
   stage = "Legendary",
@@ -15,16 +15,48 @@ local shaymin_land={
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
     info_queue[#info_queue+1] = {set = 'Other', key = 'designed_by', vars = {"TekkyAnonymous"}}
-    return { vars = {center.ability.extra.Xmult_mod, center.ability.extra.Xmult, center.ability.extra.eaten, center.ability.evo_req }}
+    return { vars = { center.ability.extra.diff_eaten, center.ability.evo_req, center.ability.extra.freeze, center.ability.extra.para, center.ability.extra.burn, center.ability.extra.sleep, center.ability.extra.poison }}
   end,
   calculate = function(self, card, context)
     if context.cardarea == G.jokers and context.before and not context.blueprint then
       for k, v in ipairs(context.scoring_hand) do
-        if v.config.center ~= G.P_CENTERS.c_base and not v.debuff and not v.vampired then
-          card.ability.extra.Xmult = card.ability.extra.Xmult + ((v.ability.bonus + v.base.nominal) * card.ability.extra.Xmult_mod)
-          card.ability.extra.eaten = card.ability.extra.eaten + 1
+        local shaymin_temp = false
+        if v.seal == 'poke_ext_sleep' then
+          shaymin_temp = true
+          if card.ability.extra.sleep == 'Yes' then
+            card.ability.extra.sleep = 'Done!'
+            card.ability.extra.diff_eaten = card.ability.extra.diff_eaten + 1
+          end
+        elseif v.seal == 'poke_ext_burned' then 
+          shaymin_temp = true
+          if card.ability.extra.burn == 'Yes' then
+            card.ability.extra.burn = 'Done!'
+            card.ability.extra.diff_eaten = card.ability.extra.diff_eaten + 1
+          end
+        elseif v.seal == 'poke_ext_poison' then
+           shaymin_temp = true
+          if card.ability.extra.poison == 'Yes' then
+            card.ability.extra.poison = 'Done!'
+            card.ability.extra.diff_eaten = card.ability.extra.diff_eaten + 1
+          end
+        elseif v.seal == 'poke_ext_para' then
+          shaymin_temp = true
+          if card.ability.extra.para == 'Yes' then
+            card.ability.extra.para = 'Done!'
+            card.ability.extra.diff_eaten = card.ability.extra.diff_eaten + 1
+          end
+        elseif v.seal == 'poke_ext_frozen' then
+          shaymin_temp = true
+          if card.ability.extra.freeze == 'Yes' then
+            card.ability.extra.freeze = 'Done!'
+            card.ability.extra.diff_eaten = card.ability.extra.diff_eaten + 1
+          end
+        end
+        if shaymin_temp == true then
+          -- card.ability.extra.Xmult = card.ability.extra.Xmult + ((v.ability.bonus + v.base.nominal) * card.ability.extra.Xmult_mod)
+          -- card.ability.extra.eaten = card.ability.extra.eaten + 1
           v.vampired = true
-          v:set_ability(G.P_CENTERS.c_base, nil, true)
+          v:set_seal(nil, nil, true)
           G.E_MANAGER:add_event(Event({
             func = function()
               v:juice_up()
@@ -33,15 +65,16 @@ local shaymin_land={
             end
           }))
         end
+        print(card.ability.extra.diff_eaten)
       end
-    elseif context.joker_main and card.ability.extra.Xmult > 1.0 then
-      return {
-        message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.Xmult } },
-        colour = G.C.XMULT,
-        Xmult_mod = card.ability.extra.Xmult
-      }
+    -- elseif context.joker_main and card.ability.extra.Xmult > 1.0 then
+    --   return {
+    --     message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.Xmult } },
+    --     colour = G.C.XMULT,
+    --     Xmult_mod = card.ability.extra.Xmult
+    --   }
     end
-    return scaling_evo(self, card, context, "j_poke_ext_shaymin_sky", card.ability.extra.eaten, self.config.evo_req)
+    return scaling_evo(self, card, context, "j_poke_ext_shaymin_sky", card.ability.extra.diff_eaten, self.config.evo_req)
   end
 }
 -- Shaymin-Sky 492*
@@ -50,7 +83,7 @@ local shaymin_sky={
   poke_custom_prefix = "poke_ext",
   pos = {x = 9, y = 10},
   soul_pos = {x = 3, y = 10},
-  config = { extra = { Xmult = 1.5, Xmult_mod = 0.005 }},
+  config = { extra = { Xmult_multi = 1.5, }},
   rarity = 4,
   cost = 20,
   stage = "Other",
@@ -60,23 +93,28 @@ local shaymin_sky={
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
     info_queue[#info_queue+1] = {set = 'Other', key = 'designed_by', vars = {"TekkyAnonymous"}}
-    return {vars = {center.ability.extra.Xmult}}
+    return {vars = {center.ability.extra.Xmult_multi}}
   end,
   calculate = function(self, card, context)
-    if context.cardarea == G.play and context.individual and card.ability.extra.Xmult > 1.0 then
-      if context.other_card.config.center ~= G.P_CENTERS.c_base and not context.other_card.debuffed then
-        return {
-          message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.Xmult } },
-          colour = G.C.XMULT,
-          Xmult_mod = card.ability.extra.Xmult
-        }
+    if context.cardarea == G.play and context.individual then
+      if context.other_card.seal == 'poke_ext_sleep' or 
+        context.other_card.seal == 'poke_ext_burned' or 
+        context.other_card.seal == 'poke_ext_poison' or 
+        context.other_card.seal == 'poke_ext_para' or 
+        context.other_card.seal == 'poke_ext_frozen' then
+          return {
+                message = "Seed Flare!",
+                colour = G.C.GREEN,
+                x_mult = card.ability.extra.Xmult_multi,
+                card = card
+              }
       end
-    elseif context.joker_main and card.ability.extra.Xmult > 1.0 then
-      return {
-        message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.Xmult } },
-        colour = G.C.XMULT,
-        Xmult_mod = card.ability.extra.Xmult
-      }
+    -- elseif context.joker_main and card.ability.extra.Xmult > 1.0 then
+    --   return {
+    --     message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.Xmult } },
+    --     colour = G.C.XMULT,
+    --     Xmult_mod = card.ability.extra.Xmult
+    --   }
     end
   end
 }
@@ -138,7 +176,7 @@ local a_vulpix={
 local a_ninetales={
     name = "a_ninetales",
     pos = {x = 6, y = 0},
-    config = {extra = {odds = 9, limit = 1, triggers = 0}},
+    config = {extra = {odds = 4, limit = 1, triggers = 0}},
     rarity = "poke_safari",
     cost = 10,
     stage = "One",
