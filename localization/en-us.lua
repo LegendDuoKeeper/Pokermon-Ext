@@ -4,23 +4,20 @@ return {
             j_poke_ext_shaymin_land = {
                 name = "Shaymin (Land Forme)",
                 text = {
-                  "Removes seals from all",
-                  "scored {C:attention}Statused{} cards",
-                  "{C:inactive,s:0.8}(Transforms after removing at least", 
-                  "{C:inactive,s:0.8}one of each status) (Currently {C:attention,s:0.8}#1#{C:inactive,s:0.8}/#2#)",
-                  "{C:inactive}(Remaining Statuses:)",
-                  "{C:inactive,s:0.8}({C:chips,s:0.8}#3#   {C:gold,s:0.8}#4#   {C:mult,s:0.8}#5#   {C:inactive,s:0.8}#6#   {C:purple,s:0.8}#7#{C:inactive,s:0.8})",
-                  
+                  "Gains {X:red,C:white}X{} Mult equal to {X:red,C:white}X#1#{}",
+                  "the amount of Chips each scored",
+                  "{C:attention}Enhanced card{} would score.",
+                  "Removes card {C:attention}enhancements{}.",
+                  "{C:inactive}(Currently {X:red,C:white}X#2#{C:inactive} Mult)",
+                  "{C:inactive,s:0.8}(Transforms at {C:attention,s:0.8}#3#{C:inactive,s:0.8} / #4# removed enhancements)"
                 }
             },
             j_poke_ext_shaymin_sky = {
                 name = "Shaymin (Sky Forme)",
                 text = {
-                  "Disables negative effects",
-                  "of all {C:attention}Status{} seals",
-                  "{br:3.5}text needs to be here to work",
-                  "Played {C:attention}Statused{} cards give",
-                  "{X:red,C:white}X#1#{} Mult when scored",
+                  "Gives {X:red,C:white}X#1#{} Mult.",
+                  "Repeat this effect when",
+                  "an {C:attention}Enhanced card{} is scored."
                 }
             },
             j_poke_ext_petilil = {
@@ -81,7 +78,8 @@ return {
             j_poke_ext_carbink = {
                 name = 'Carbink',
                 text = {
-                    "{C:green}#3#% Chance{} to {C:mult}self destruct{} at end of round",
+                    "{C:green}Percent Chance{}",
+                    "Chance to {C:mult}self destruct{} at end of round",
                     "Changes suit of leftmost scoring card",
                     "in {C:attention}first hand{} of round to {C:diamonds}Diamond{}",
                     "{C:inactive,s:0.8}(Chance is equal to{C:diamonds,s:0.8} Diamonds{C:inactive,s:0.8} in deck / #2#)",
@@ -201,204 +199,20 @@ return {
             j_poke_ext_giratina = {
                 name = "Giratina",
                 text = {
-                    "Creates a{C:dark_edition} Distortion{}",
-                    "{C:attention}voucher{} in the shop",
-                    "when sold"
-                }
-            },
-            j_poke_ext_munna = {
-                name = "Munna",
-                text = {
-                    "When {C:attention}Small Blind{} or {C:attention}Big Blind{}",
-                    "is selected, {C:inactive}Sleep{} a random card",
-                    "in full deck that doesn't have a {C:attention}seal{}",
-                    "{br:3.5}text needs to be here to work",
-                    "{C:green}#1# in #2#{} chance to create a {C:purple}Tarot{}",
-                    "card when a {C:attention}Statused{} card is scored",
-                    "{C:inactive,s:0.8}(Evolves with a {C:attention,s:0.8}Moon Stone{C:inactive,s:0.8})",
-                }
-            },
-            j_poke_ext_musharna = {
-                name = "Musharna",
-                text = {
-                    "When {C:attention}Small Blind{} or {C:attention}Big Blind{}",
-                    "is selected, create a {C:pink}Dream Mist{}",
-                    "{br:3.5}text needs to be here to work",
-                    "{C:attention}Retrigger{} all scored Statused cards",
-                }
-            },
-            j_poke_ext_mareanie = {
-                name = "Mareanie",
-                text = {
-                    "When {C:attention}round begins{}, {C:purple}Poison{} a random card",
-                    "held in hand that doesn't have a {C:attention}seal{}",
-                    "{br:3.5}text needs to be here to work",
-                    "Played cards with {C:attention}Statuses{}",
-                    "give {C:chips}+#1#{} chips when scored",
-                    "{C:inactive,s:0.8}(Evolves after {C:attention,s:0.8}#2#{C:inactive,s:0.8} rounds)"
-                }
-            },
-            j_poke_ext_toxapex = {
-                name = "Toxapex",
-                text = {
-                    "If the leftmost scoring card in {C:attention}first hand",
-                    "of round doesn't have a {C:attention}seal{}, {C:purple}Poison{} it",
-                    "{br:3.5}text needs to be here to work",
-                    "Played cards with {C:attention}Statuses{}",
-                    "give {C:chips}+#1#{} chips when scored"
-                }
-            },
-            j_poke_ext_sizzlipede = {
-                name = "Sizzlipede",
-                text = {
-                    "When {C:attention}round begins{}, {C:red}Burn{} a random card",
-                    "held in hand that doesn't have a {C:attention}seal{}",
-                    "{br:3.5}text needs to be here to work",
-                    "Played cards with {C:attention}Statuses{}",
-                    "give {C:mult}+#1#{} Mult when scored",
-                    "{C:inactive,s:0.8}(Evolves after {C:attention,s:0.8}#2#{C:inactive,s:0.8} rounds)"
-                }
-            },
-            j_poke_ext_centiskorch = {
-                name = "Centiskorch",
-                text = {
-                    "If {C:attention}first discard{} of round is exactly",
-                    "1 card and it doesn't have a {C:attention}seal{}, {C:red}Burn{} it",
-                    "{br:3.5}text needs to be here to work",
-                    "Played cards with {C:attention}Statuses{}",
-                    "give {C:mult}+#1#{} Mult when scored"
-                }
-            },
-            j_poke_ext_snom = {
-                name = "Snom",
-                text = {
-                    "Gains {X:red,C:white}X#2#{} Mult per", 
-                    "scoring {C:attention}Statused{} card played",
-                    "{br:3.5}text needs to be here to work",
-                    "{C:attention}Volatile Right",
-                    "{C:chips}Freeze{} a random scoring card", 
-                    "without a {C:attention}seal{} in played hand",
-                    "{C:inactive,s:0.8}(Evolves at {X:red,C:white}X#1#{C:inactive,s:0.8}/{X:inactive,C:white}X2{C:inactive,s:0.8} Mult)"
-                }
-            },
-            j_poke_ext_frosmoth = {
-                name = "Frosmoth",
-                text = {
-                    "Gains {X:red,C:white}X#2#{} Mult per", 
-                    "scoring {C:attention}Statused{} card played",
-                    "{br:3.5}text needs to be here to work",
-                    "{C:attention}Volatile Right",
-                    "{C:chips}Freeze{} a random scoring card", 
-                    "without a {C:attention}seal{} in played hand",
-                    "{C:inactive,s:0.8}(Currently {X:red,C:white}X#1#{C:inactive,s:0.8} Mult)"
-                }
-            },
-            j_poke_ext_tadbulb = {
-                name = "Tadbulb",
-                text = {
-                    "When hand is played, {C:green}#1# in #4#{} chance to {C:gold}Paralyze{}",
-                    "a random card in hand that doesn't have a {C:attention}seal",
-                    "{br:3.5}text needs to be here to work",
-                    "Earns {C:money}$#2#{} at end of round for every",
-                    "3 {C:attention}Statused{} cards in your full deck",
-                    "{C:inactive,s:0.8}(Currently earns {C:money}$#3#{C:inactive,s:0.8}/$#5# at end of round)",
-                    "{C:inactive,s:0.8}(Evolves with a {C:attention,s:0.8}Thunder Stone{C:inactive,s:0.8})"
-                    
-                }
-            },
-            j_poke_ext_bellibolt = {
-                name = "Bellibolt",
-                text = {
-                    "When hand is played, {C:green}#1# in #4#{} chance to {C:gold}Paralyze{}",
-                    "a random card held in hand that doesn't have a {C:attention}seal",
-                    "{br:3.5}text needs to be here to work",
-                    "Earns {C:money}$#2#{} at end of round for every",
-                    "4 {C:attention}Statused{} cards in your full deck",
-                    "{C:inactive,s:0.8}(Currently earns {C:money}$#3#{C:inactive,s:0.8}/$#5# at end of round)"
-                }
-            },
-            j_poke_ext_sneaselh = {
-                name = "Sneasel-Hisui",
-                text = {
-                    "If {C:attention}first hand{} of round contains a set of",
-                    "{C:attention}exactly{} 3 cards with {C:attention}matching ranks{},",
-                    "{C:purple}Poison{} a random scoring card without a seal",
-                    "{br:3.5}text needs to be here to work",
-                    "Gains {C:mult}+#1#{} Mult for each {C:purple}Poisoned{} card in full deck",
-                    "{C:inactive,s:0.8}(Currently {C:mult,s:0.8}+#2#{C:inactive,s:0.8} Mult, Evolves with a {C:attention,s:0.8}Sun Stone{C:inactive,s:0.8})"
-                }
-            },
-            j_poke_ext_sneasler = {
-                name = "Sneasler",
-                text = {
-                    "If {C:attention}first hand{} of round contains a set of",
-                    "{C:attention}exactly{} 3 cards with {C:attention}matching ranks{}, the cards",
-                    "in that set become {C:purple}Poisoned{}, {C:money}Paralyzed{}, and {C:inactive}Asleep{}",
-                    "from left to right if they don't have a seal",
-                    "{br:3.5}text needs to be here to work",
-                    "Gains {C:mult}+#1#{} Mult for each {C:purple}Poisoned{}, {C:money}Paralyzed{},",
-                    "and {C:inactive}Asleep{} card in full deck {C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
+                "Creates a{C:dark_edition} Distortion{}",
+                "{C:attention}voucher{} in the shop",
+                "when sold"
                 }
             },
         },
 
         Spectral = {
-            -- c_poke_ext_honey = {
-            --     name = "Honey",
-            --     text = {
-            --         "+1 Shop Slot",
-            --         "Use to create",
-            --         "a{C:colorless} Shiny{} tag",
-            --     },
-            -- },
-        },
-
-        Item = {
             c_poke_ext_honey = {
                 name = "Honey",
                 text = {
-                    "{C:attention}+1{} Shop Slot",
+                    "+1 Shop Slot",
                     "Use to create",
-                    "a random tag",
-                },
-            },
-            c_poke_ext_dream_mist = {
-                name = "Dream Mist",
-                text = {
-                    "{C:inactive}Sleeps {C:attention}2{} selected unsealed cards",
-                    "Creates a {C:colorless}Colorless{} energy",
-                    "{C:inactive}(Must have room){}",
-                },
-            },
-            c_poke_ext_charcoal = {
-                name = "Charcoal",
-                text = {
-                    "{C:mult}Burns {C:attention}2{} selected unsealed cards",
-                    "Those cards {C:attention}permanently{} gain {C:mult}+6{} Mult",
-                },
-            },
-            c_poke_ext_magnet = {
-                name = "Magnet",
-                text = {
-                    "{C:gold}Paralyzes {C:attention}2{} selected unsealed", 
-                    "cards, then a random sealed card", 
-                    "in hand becomes a {C:attention}Steel{} card",
-                    "{C:inactive,s:0.8}Paralyzed cards have a {C:green,s:0.8}#1# in #2#{}",
-                    "{C:inactive,s:0.8}to score as debuffed when played",
-                },
-            },
-            c_poke_ext_nevermeltice = {
-                name = "NeverMeltIce",
-                text = {
-                    "{C:chips}Freezes {C:attention}2{} selected unsealed cards",
-                    "Create a {C:dark_edition}Foil{} tag if you don't already have one",
-                },
-            },
-            c_poke_ext_poison_barb = {
-                name = "Poison Barb",
-                text = {
-                    "{C:purple}Poisons {C:attention}2{} selected unsealed cards",
-                    "Destroys a random {C:attention}unsealed{} card",
+                    "a{C:colorless} Shiny{} tag",
                 },
             },
         },
@@ -415,70 +229,12 @@ return {
                 },
             },
         },
-
-        Other = {
-            poke_ext_burned_seal = {
-                name = "Burned Seal",
-                text = {
-                    "{C:chips}-25{} chips", 
-                    "{C:inactive}(Can go negative){}",
-                }
-            },
-            poke_ext_para_seal = {
-                name = "Paralyzed Seal",
-                text = {
-                    "{C:green}1 in 3{} chance", 
-                    "to score as debuffed",
-                }
-            },
-            poke_ext_poison_seal = {
-                name = "Poisoned Seal",
-                text = {
-                    "{X:red,C:white}X0.8{} Mult",
-                }
-            },
-            poke_ext_sleep_seal = {
-                name = "Sleep Seal",
-                text = {
-                    "{C:mult}-1{} discards this",
-                    "round when scored", 
-                    "{C:chips}-1{} hands this round",
-                    "when manually discarded",
-                }
-            },
-            poke_ext_frozen_seal = {
-                name = "Frozen Seal",
-                text = {
-                    "Lose {C:money}$2{} when this",
-                    "card is scored",
-                }
-            },
-            poke_ext_honey_table = {
-                name = "Honey Table",
-                text = {
-                    "{C:green}40%{} {C:green}Uncommon{} Tag",
-                    "{C:green}25%{} {C:attention}Stage 1{} Tag",
-                    "{C:green}15%{} {C:mult}Rare{} Tag",
-                    "{C:green}10%{} {C:safari}Safari{} Tag",
-                    "{C:green}10%{} {C:colorless}Shiny{} Tag",
-                }
-            },
-        },
     },
 
-        
     misc = {
         dictionary = {
-            poke_ext_settings_experimental = "Enable Experimental Elements?",
-            poke_ext_settings_giratina = 'Enable Giratina?'
+            -- From Alolan Vulpix Line
+            poke_ext_aurora_ex = "Aurora!"
         },
-        labels = {
-            poke_ext_burned_seal = "Burned Seal",
-            poke_ext_para_seal = "Paralyzed Seal",
-            poke_ext_poison_seal = "Poisoned Seal",
-            poke_ext_sleep_seal = "Sleep Seal",
-            poke_ext_frozen_seal = "Frozen Seal",
-            
-        },
-    },
+    }
 }
