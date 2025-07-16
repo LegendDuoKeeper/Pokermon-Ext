@@ -4,20 +4,23 @@ return {
             j_poke_ext_shaymin_land = {
                 name = "Shaymin (Land Forme)",
                 text = {
-                  "Gains {X:red,C:white}X{} Mult equal to {X:red,C:white}X#1#{}",
-                  "the amount of Chips each scored",
-                  "{C:attention}Enhanced card{} would score.",
-                  "Removes card {C:attention}enhancements{}.",
-                  "{C:inactive}(Currently {X:red,C:white}X#2#{C:inactive} Mult)",
-                  "{C:inactive,s:0.8}(Transforms at {C:attention,s:0.8}#3#{C:inactive,s:0.8} / #4# removed enhancements)"
+                  "Removes seals from all",
+                  "scored {C:attention}Statused{} cards",
+                  "{C:inactive,s:0.8}(Transforms after removing at least", 
+                  "{C:inactive,s:0.8}one of each status) (Currently {C:attention,s:0.8}#1#{C:inactive,s:0.8}/#2#)",
+                  "{C:inactive}(Remaining Statuses:)",
+                  "{C:inactive,s:0.8}({C:chips,s:0.8}#3#   {C:gold,s:0.8}#4#   {C:mult,s:0.8}#5#   {C:inactive,s:0.8}#6#   {C:purple,s:0.8}#7#{C:inactive,s:0.8})",
+                  
                 }
             },
             j_poke_ext_shaymin_sky = {
                 name = "Shaymin (Sky Forme)",
                 text = {
-                  "Gives {X:red,C:white}X#1#{} Mult.",
-                  "Repeat this effect when",
-                  "an {C:attention}Enhanced card{} is scored."
+                  "Disables negative effects",
+                  "of all {C:attention}Status{} seals",
+                  "{br:3.5}text needs to be here to work",
+                  "Played {C:attention}Statused{} cards give",
+                  "{X:red,C:white}X#1#{} Mult when scored",
                 }
             },
             j_poke_ext_petilil = {
@@ -293,7 +296,7 @@ return {
             j_poke_ext_tadbulb = {
                 name = "Tadbulb",
                 text = {
-                    "When hand is played, {C:green}#1# in #4#{} chance to {C:yellow}Paralyze{}",
+                    "When hand is played, {C:green}#1# in #4#{} chance to {C:gold}Paralyze{}",
                     "a random card in hand that doesn't have a {C:attention}seal",
                     "{br:3.5}text needs to be here to work",
                     "Earns {C:money}$#2#{} at end of round for every",
@@ -306,7 +309,7 @@ return {
             j_poke_ext_bellibolt = {
                 name = "Bellibolt",
                 text = {
-                    "When hand is played, {C:green}#1# in #4#{} chance to {C:yellow}Paralyze{}",
+                    "When hand is played, {C:green}#1# in #4#{} chance to {C:gold}Paralyze{}",
                     "a random card held in hand that doesn't have a {C:attention}seal",
                     "{br:3.5}text needs to be here to work",
                     "Earns {C:money}$#2#{} at end of round for every",
@@ -377,8 +380,11 @@ return {
             c_poke_ext_magnet = {
                 name = "Magnet",
                 text = {
-                    "{C:gold}Paralyzes {C:attention}2{} selected unsealed cards",
-                    "A random sealed card in hand becomes a {C:attention}Steel{} card",
+                    "{C:gold}Paralyzes {C:attention}2{} selected unsealed", 
+                    "cards, then a random sealed card", 
+                    "in hand becomes a {C:attention}Steel{} card",
+                    "{C:inactive,s:0.8}Paralyzed cards have a {C:green,s:0.8}#1# in #2#{}",
+                    "{C:inactive,s:0.8}to score as debuffed when played",
                 },
             },
             c_poke_ext_nevermeltice = {
