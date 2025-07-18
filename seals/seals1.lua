@@ -23,7 +23,13 @@ local burned = {
         return false
     end,
     calculate = function(self, card, context)
-		if context.cardarea == G.play and not context.repetition_only and check_main_scoring(context.main_scoring) then
+		local shaymin = false
+        for k, v in pairs(G.jokers.cards) do
+            if v.ability.set == 'Joker' and v.ability.name == "shaymin_sky" then
+                shaymin = true
+            end
+        end
+        if not shaymin and (context.cardarea == G.play and not context.repetition_only and check_main_scoring(context.main_scoring)) then
             return {
                 colour = G.C.CHIPS,
                 chips = card.ability.seal.chips
@@ -39,15 +45,21 @@ local para = {
 	atlas = "seals1",
     pos = {x = 4, y = 0},
     experiment = true,
-    config = {odds = 3, status = 1},
+    config = {odds = 4, status = 1},
     loc_vars = function(self, info_queue, center)
-        return {vars = {''..(G.GAME and G.GAME.probabilities.normal or 1), center.ability.seal.odds}}
+        return {vars = {G.GAME and G.GAME.probabilities.normal or 1, center.ability.seal.odds}}
     end,
     in_pool = function(self)
         return false
     end,
     calculate = function(self, card, context)
-        if pseudorandom('paralyze') < ((G.GAME and G.GAME.probabilities.normal or 1) / card.ability.seal.odds) then
+        local shaymin = false
+        for k, v in pairs(G.jokers.cards) do
+            if v.ability.set == 'Joker' and v.ability.name == "shaymin_sky" then
+                shaymin = true
+            end
+        end
+        if not shaymin and (pseudorandom('paralyze') < ((G.GAME and G.GAME.probabilities.normal or 1) / card.ability.seal.odds)) then
             if context.before and context.cardarea == G.play then
                 card:set_debuff(true)
             end
@@ -70,7 +82,13 @@ local poison = {
         return false
     end,
     calculate = function(self, card, context)
-		if context.cardarea == G.play and not context.repetition_only and check_main_scoring(context.main_scoring) then
+        local shaymin = false
+        for k, v in pairs(G.jokers.cards) do
+            if v.ability.set == 'Joker' and v.ability.name == "shaymin_sky" then
+                shaymin = true
+            end
+        end
+		if not shaymin and (context.cardarea == G.play and not context.repetition_only and check_main_scoring(context.main_scoring)) then
             return {
                 colour = G.C.XMULT,
                 Xmult_mod = card.ability.seal.x_mult
@@ -94,7 +112,13 @@ local sleep = {
         return false
     end,
     calculate = function(self, card, context)
-        if context.cardarea == G.play and not context.repetition_only and check_main_scoring(context.main_scoring) then
+        local shaymin = false
+        for k, v in pairs(G.jokers.cards) do
+            if v.ability.set == 'Joker' and v.ability.name == "shaymin_sky" then
+                shaymin = true
+            end
+        end
+        if not shaymin and (context.cardarea == G.play and not context.repetition_only and check_main_scoring(context.main_scoring)) then
             ease_discard(card.ability.seal.d_size)
         end
         if context.pre_discard then
@@ -104,7 +128,7 @@ local sleep = {
                 card.ability.seal.trigger = true
             end
         end
-        if context.discard and card.seal == 'poke_ext_sleep' and card == context.other_card and card.ability.seal.trigger == true then  
+        if not shaymin and (context.discard and card.seal == 'poke_ext_sleep' and card == context.other_card and card.ability.seal.trigger == true) then  
             ease_hands_played(card.ability.seal.hands)
         end
     end,
@@ -125,7 +149,13 @@ local frozen = {
         return false
     end,
     calculate = function(self, card, context)
-		if context.cardarea == G.play and not context.repetition_only and check_main_scoring(context.main_scoring) then
+        local shaymin = false
+        for k, v in pairs(G.jokers.cards) do
+            if v.ability.set == 'Joker' and v.ability.name == "shaymin_sky" then
+                shaymin = true
+            end
+        end
+		if not shaymin and (context.cardarea == G.play and not context.repetition_only and check_main_scoring(context.main_scoring)) then
             return {
             colour = G.C.MONEY,
             dollars = 0 - card.ability.seal.money_mod
