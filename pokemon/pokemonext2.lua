@@ -11,7 +11,9 @@ local shaymin_land={
   stage = "Legendary",
   ptype = "Grass",
   atlas = "Pokedex4",
-  blueprint_compat = true,
+  perishable_compat = false,
+  eternal_compat = true,
+  blueprint_compat = false,
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
     info_queue[#info_queue+1] = {set = 'Other', key = 'designed_by', vars = {"TekkyAnonymous"}}
@@ -89,6 +91,8 @@ local shaymin_sky={
   stage = "Other",
   ptype = "Colorless",
   atlas = "Pokedex4",
+  perishable_compat = false,
+  eternal_compat = true,
   blueprint_compat = true,
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
@@ -129,6 +133,8 @@ local a_vulpix={
     stage = "Basic",
     atlas = "Regionals",
     ptype = "Water",
+    perishable_compat = false,
+    eternal_compat = true,
     blueprint_compat = true,
     loc_vars = function(self, info_queue, center)
       type_tooltip(self, info_queue, center)
@@ -182,6 +188,8 @@ local a_ninetales={
     stage = "One",
     atlas = "Regionals",
     ptype = "Water",
+    perishable_compat = false,
+    eternal_compat = true,
     blueprint_compat = true,
     loc_vars = function(self, info_queue, center)
         type_tooltip(self, info_queue, center)

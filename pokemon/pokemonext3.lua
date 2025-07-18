@@ -17,7 +17,7 @@ local munna={
   stage = "Basic", 
   ptype = "Psychic",
   atlas = "Pokedex5",
-  perishable_compat = true,
+  perishable_compat = false,
   eternal_compat = true,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -72,7 +72,7 @@ local musharna={
   stage = "One", 
   ptype = "Psychic",
   atlas = "Pokedex5",
-  perishable_compat = true,
+  perishable_compat = false,
   eternal_compat = true,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -346,7 +346,7 @@ local snom={
   stage = "Basic", 
   ptype = "Water",
   atlas = "Pokedex8",
-  perishable_compat = true,
+  perishable_compat = false,
   eternal_compat = true,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -409,7 +409,7 @@ local frosmoth={
   stage = "One", 
   ptype = "Water",
   atlas = "Pokedex8",
-  perishable_compat = true,
+  perishable_compat = false,
   eternal_compat = true,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -453,10 +453,10 @@ local frosmoth={
 local tadbulb={
   name = "tadbulb", 
   pos = {x = 9, y = 2},
-  config = {extra = {money = 2, total = 0, odds = 5, money_limit = 20, statuses = 0}},
+  config = {extra = {money = 2, total = 0, odds = 4, money_limit = 20, statuses = 0}},
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
-    info_queue[#info_queue+1] = {key = 'poke_ext_para_seal', set = 'Other'}
+    info_queue[#info_queue+1] = G.P_CENTERS.c_poke_ext_magnet
     local statuses = 0
     if G.playing_cards then
       for k, v in pairs(G.playing_cards) do
@@ -484,7 +484,7 @@ local tadbulb={
   stage = "Basic", 
   ptype = "Lightning",
   atlas = "Pokedex9",
-  perishable_compat = true,
+  perishable_compat = false,
   eternal_compat = true,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -538,7 +538,7 @@ local bellibolt={
   config = {extra = {money = 3, total = 0, odds = 3, money_limit = 20, statuses = 0}},
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
-    info_queue[#info_queue+1] = {key = 'poke_ext_para_seal', set = 'Other'}
+    info_queue[#info_queue+1] = G.P_CENTERS.c_poke_ext_magnet
     local statuses = 0
     if G.playing_cards then
       for k, v in pairs(G.playing_cards) do
@@ -565,7 +565,7 @@ local bellibolt={
   stage = "One", 
   ptype = "Lightning",
   atlas = "Pokedex9",
-  perishable_compat = true,
+  perishable_compat = false,
   eternal_compat = true,
   blueprint_compat = true,
   calculate = function(self, card, context)
@@ -744,7 +744,7 @@ local sneaselh={
   config = {extra = {mult_mod = 2, mult = 0, sneaslered = 0}},
   loc_vars = function(self, info_queue, center)
     info_queue[#info_queue+1] = {set = 'Other', key = 'poke_ext_poison_seal',}
-    info_queue[#info_queue+1] = {key = 'poke_ext_para_seal', set = 'Other'}
+    info_queue[#info_queue+1] = G.P_CENTERS.c_poke_ext_magnet
     info_queue[#info_queue+1] = {set = 'Other', key = 'poke_ext_sleep_seal'}
     type_tooltip(self, info_queue, center)
     local sneaslered = 0

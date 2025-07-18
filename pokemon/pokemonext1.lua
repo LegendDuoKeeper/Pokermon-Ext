@@ -275,7 +275,7 @@ local carbink={
   stage = "Basic", 
   ptype = "Fairy",
   atlas = "Pokedex6",
-  perishable_compat = true,
+  perishable_compat = false,
   eternal_compat = false,
   blueprint_compat = false,
   calculate = function(self, card, context)
@@ -431,7 +431,7 @@ local mega_diancie={
 local cutiefly={
   name = "cutiefly",
   pos = {x = 9, y = 1},
-  config = {extra = {rounds = 3, grass = 0, odds = 1, odds2 = 10}},
+  config = {extra = {rounds = 3, grass = 0, odds = 1, odds2 = 8}},
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
     if G.playing_cards then
@@ -480,7 +480,7 @@ local ribombee={
   ptype = "Fairy",
   atlas = "Pokedex7",
   perishable_compat = false,
-  blueprint_compat = false,
+  blueprint_compat = true,
   eternal_compat = true,
   calculate = function(self, card, context)
     local honey = 0
@@ -568,65 +568,48 @@ local rockruff={
 local lycanroc={
   name = "lycanroc", 
   pos = {x = 12, y = 1},
-  config = {extra = {suit = "Clubs", odds = 2, club_count = 0}},
+  config = {extra = {suit = "Clubs", Xmult = 2, req_size = 5,}},
     loc_vars = function(self, info_queue, center)
       type_tooltip(self, info_queue, center)
-      return {vars = {G.GAME and G.GAME.probabilities.normal or 1, center.ability.extra.odds}}
-  end,
+      return {vars = {center.ability.extra.Xmult, center.ability.extra.req_size}}
+    end,
   rarity = "poke_safari", 
   cost = 8, 
   stage = "One", 
   ptype = "Earth",
   atlas = "Pokedex7",
   blueprint_compat = true,
-  perishable_compat = false,
+  perishable_compat = true,
   eternal_compat = true,
   calculate = function(self, card, context)
-    if context.before then
-      card.ability.extra.club_count = 0 
-      for i = 1, #context.scoring_hand do
+    local no_clubs = true
+    if context.cardarea == G.jokers and context.joker_main and #context.full_hand == 5 then
+      for i=1, #context.scoring_hand do
         if context.scoring_hand[i]:is_suit(card.ability.extra.suit) then
-          card.ability.extra.club_count = card.ability.extra.club_count + 1
+          no_clubs = false
+          break
         end
       end
-      --if G.GAME.current_round.hands_played == 0 then     (Old first hand of round clause)
-        if card.ability.extra.club_count > 1 then
-          if pseudorandom('lycanroc') < G.GAME.probabilities.normal/card.ability.extra.odds then
-            local targets = {}
-            for k, v in ipairs(context.scoring_hand) do
-              if v:is_suit("Clubs") then
-                table.insert(targets, v)
-              end
-            end
-            if card.ability.extra.club_count > 1 then 
-              card.ability.extra.club_count = 0
-              local target = pseudorandom_element(targets, pseudoseed('lycanroc_copy'))
-              local copy = copy_card(target, nil, nil, G.playing_card)
-              copy:add_to_deck()
-              G.deck.config.card_limit = G.deck.config.card_limit + 1
-              table.insert(G.playing_cards, copy)
-              -- If you want it to not place the duplicated card into the hand after duping and put it into the deck instead,
-              -- 2 lines above this one, change from G.hand:emplace(copy) to G.deck:emplace(copy)
-              G.hand:emplace(copy)
-              copy.states.visible = nil
-              G.E_MANAGER:add_event(Event({
-                func = function()
-                copy:start_materialize()
-                return true
-              end
-              }))
-              playing_card_joker_effects({copy})
-              return {
-                  message = localize('k_copied_ex'),
-                  colour = G.C.CHIPS,
-                  card = card,
-                  playing_cards_created = {true}
-              }
-            end
-          end
-          card.ability.extra.club_count = 0
-        end
-      --end (Matching end for above clause)
+      if no_clubs then
+        return {
+          Xmult = card.ability.extra.Xmult,
+          colour = G.C.XMULT,
+        }
+      end
+    end
+    if context.after and no_clubs == true and #context.full_hand == 5 then
+      local targets = {}
+      for k, v in ipairs(context.scoring_hand) do
+        table.insert(targets, v)
+      end
+      if next(targets) ~= nil then
+        local target = pseudorandom_element(targets, pseudoseed('lycanday_convert'))
+        SMODS.change_base(target, "Clubs")
+        return {
+          message = "Howl!",
+          colour = G.C.CHIPS,
+        }
+      end
     end
   end
 }
@@ -680,7 +663,7 @@ local lycanrocd={
   ptype = "Earth",
   atlas = "Pokedex7",
   blueprint_compat = true,
-  perishable_compat = false,
+  perishable_compat = true,
   eternal_compat = true,
   calculate = function(self, card, context)
     if context.individual and context.cardarea == G.play and not context.other_card.debuff then
@@ -744,7 +727,7 @@ local fomantis={
 local lurantis={
 name = "lurantis",
 pos = {x = 10, y = 2},
-config = {extra = {Xmult = 1, Xmult_mod = 0.12}},
+config = {extra = {Xmult = 1, Xmult_mod = 0.2}},
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
     return {vars = { center.ability.extra.Xmult, center.ability.extra.Xmult_mod }}
@@ -760,25 +743,27 @@ config = {extra = {Xmult = 1, Xmult_mod = 0.12}},
   calculate = function(self, card, context)
     if context.after then
       local _card = context.scoring_hand[1]
-      if _card:is_suit('Hearts') and context.cardarea == G.jokers then
-        if _card.config.center ~= G.P_CENTERS.c_base and not _card.debuff then
-          card.ability.extra.Xmult = card.ability.extra.Xmult + (card.ability.extra.Xmult_mod * 2)
-          G.E_MANAGER:add_event(Event{
-            trigger = 'after',
-            delay = 0.3,
-            func = function()
-              _card:start_dissolve({G.C.RED}, nil, 1.6)
-              return true end
-          })
-        else
-          card.ability.extra.Xmult = card.ability.extra.Xmult + card.ability.extra.Xmult_mod
-          G.E_MANAGER:add_event(Event{
-            trigger = 'after',
-            delay = 0.3,
-            func = function()
-              _card:start_dissolve({G.C.RED}, nil, 1.6)
-              return true end
-          })
+      if G.GAME.current_round.hands_played == 0 then
+        if _card:is_suit('Hearts') and context.cardarea == G.jokers then
+          if _card.config.center ~= G.P_CENTERS.c_base and not _card.debuff then
+            card.ability.extra.Xmult = card.ability.extra.Xmult + (card.ability.extra.Xmult_mod * 2)
+            G.E_MANAGER:add_event(Event{
+              trigger = 'after',
+              delay = 0.3,
+              func = function()
+                _card:start_dissolve({G.C.RED}, nil, 1.6)
+                return true end
+            })
+          else
+            card.ability.extra.Xmult = card.ability.extra.Xmult + card.ability.extra.Xmult_mod
+            G.E_MANAGER:add_event(Event{
+              trigger = 'after',
+              delay = 0.3,
+              func = function()
+                _card:start_dissolve({G.C.RED}, nil, 1.6)
+                return true end
+            })
+          end
         end
       end
     end
