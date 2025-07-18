@@ -427,7 +427,7 @@ return {
             poke_ext_para_seal = {
                 name = "Paralyzed Seal",
                 text = {
-                    "{C:green}1 in 3{} chance", 
+                    "{C:green}1 in 4{} chance", 
                     "to score as debuffed",
                 }
             },
