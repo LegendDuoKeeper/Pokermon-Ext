@@ -93,11 +93,11 @@ local magnet = {
     -- poke_custom_prefix = "poke_ext",
     key = "magnet",
     set = "Item",
-    config = {max_highlighted = 2, min_highlighted = 1},
+    config = {max_highlighted = 2, min_highlighted = 1, odds = 4},
     loc_vars = function(self, info_queue, center)
         type_tooltip(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'designed_by', vars = {"DaleWillFail"}}
-        info_queue[#info_queue+1] = {key = 'poke_ext_para_seal', set = 'Other'}
+        return {vars ={G.GAME and G.GAME.probabilities.normal or 1, center.ability.odds}}
     end,
     pos = { x = 1, y = 0 },
     atlas = "Items",
