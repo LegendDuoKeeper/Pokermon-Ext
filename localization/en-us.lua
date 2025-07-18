@@ -119,8 +119,8 @@ return {
                 name = 'Ribombee',
                 text = {
                     "If you don't have a {C:attention}Honey{} card",
-                    "Create a {C:attention}Honey{} card after",
-                    "{C:attention}#1#{} rounds, Decreases an additional time",
+                    "Create a {C:attention}Honey{} card after {C:attention}#1#{} rounds",
+                    "Decreases an additional time",
                     "for each {X:grass,C:white}Grass{} joker you have",
                 }
             },
@@ -137,9 +137,9 @@ return {
                 name = 'Lycanroc',
                 text = {
                     -- "If {C:attention}first hand{} of round contains at least {C:attention}3{} scoring {C:clubs}Clubs{},",
-                    "If {C:attention}played hand{} contains at least {C:attention}2{} scoring {C:clubs}Clubs{},",
-                    "{C:green}#1# in #2#{} chance to add a permanent copy of a random",
-                    "scored {C:clubs}Club{} to deck and draw it to {C:attention}hand{}"
+                    "If {C:attention}played hand{} contains at least {C:attention}#2#{}",
+                    "scoring non-{C:clubs}Club{} cards, converts a random",
+                    "scoring card to a {C:clubs}Club{} and gives {X:red,C:white}X#1#{} Mult",
                 }
             },
             j_poke_ext_lycanrocn = {
@@ -170,8 +170,8 @@ return {
             j_poke_ext_lurantis = {
                 name = "Lurantis",
                 text = {
-                  "If the leftmost scored card in",
-                  "played hand is a {C:hearts}Heart{}, destroy it",
+                  "If the leftmost scoring card in",
+                  "{C:attention}first hand{} of round is a {C:hearts}Heart{}, destroy it",
                   "{br:3.5}text needs to be here to work",
                   "Gains {X:red,C:white}X#2#{} Mult per {C:hearts}Heart{} card",
                   "destroyed, this gain is doubled if",
