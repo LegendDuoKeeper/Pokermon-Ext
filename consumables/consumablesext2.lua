@@ -20,14 +20,18 @@ local dream_mist = {
     soul_rate = .05,
     can_use = function(self, card)
         local no_seals = true
+        local useable = false
         if G.hand.highlighted and #G.hand.highlighted >= self.config.min_highlighted and #G.hand.highlighted <= self.config.max_highlighted then
             for k, v in ipairs(G.hand.highlighted) do
                     if v.seal ~= nil then
                         no_seals = false
                     end
-                end
             end
-        return no_seals
+            if no_seals == true then
+                useable = true
+            end
+        end
+        return useable
     end,
     use = function(self, card, area, copier)
         set_spoon_item(card)
@@ -159,14 +163,18 @@ local nevermeltice = {
     soul_rate = .05,
     can_use = function(self, card)
         local no_seals = true
+        local useable = false
         if G.hand.highlighted and #G.hand.highlighted >= self.config.min_highlighted and #G.hand.highlighted <= self.config.max_highlighted then
             for k, v in ipairs(G.hand.highlighted) do
-                if v.seal ~= nil then
-                    no_seals = false
-                end
+                    if v.seal ~= nil then
+                        no_seals = false
+                    end
+            end
+            if no_seals == true then
+                useable = true
             end
         end
-        return no_seals
+        return useable
     end,
     use = function(self, card, area, copier)
         set_spoon_item(card)
