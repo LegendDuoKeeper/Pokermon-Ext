@@ -12,16 +12,17 @@ local burned = {
     name = "burned",
 	key = "burned",
 	badge_colour = HEX("F92626"),
-	atlas = "seals1",
-    pos = {x = 2, y = 0},
+	atlas = "seals",
+    pos = {x = 0, y = 0},
     experiment = true,
     config = {chips = -25, status = 1},
     loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'designed_by', vars = {"NhanBread"}}
         return {vars = {center.ability.seal.chips}}
     end,
-    in_pool = function(self)
-        return false
-    end,
+    -- in_pool = function(self)
+--        return false
+--    end,
     calculate = function(self, card, context)
 		local shaymin = false
         for k, v in pairs(G.jokers.cards) do
@@ -42,16 +43,17 @@ local para = {
     name = "para",
 	key = "para",
 	badge_colour = HEX("EFEE1F"),
-	atlas = "seals1",
-    pos = {x = 4, y = 0},
+	atlas = "seals",
+    pos = {x = 3, y = 0},
     experiment = true,
     config = {odds = 4, status = 1},
     loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'designed_by', vars = {"NhanBread"}}
         return {vars = {G.GAME and G.GAME.probabilities.normal or 1, center.ability.seal.odds}}
     end,
-    in_pool = function(self)
-        return false
-    end,
+    -- in_pool = function(self)
+--        return false
+--    end,
     calculate = function(self, card, context)
         local shaymin = false
         for k, v in pairs(G.jokers.cards) do
@@ -71,16 +73,17 @@ local poison = {
     name = "poison",
 	key = "poison",
 	badge_colour = HEX("6504C5"),
-	atlas = "seals1",
-    pos = {x = 8, y = 0},
+	atlas = "seals",
+    pos = {x = 2, y = 0},
     experiment = true,
     config = {x_mult = 0.8, status = 1},
     loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'designed_by', vars = {"NhanBread"}}
         return {vars = {center.ability.seal.x_mult}}
     end,
-    in_pool = function(self)
-        return false
-    end,
+    -- in_pool = function(self)
+--        return false
+--    end,
     calculate = function(self, card, context)
         local shaymin = false
         for k, v in pairs(G.jokers.cards) do
@@ -101,16 +104,17 @@ local sleep = {
     name = "sleep",
 	key = "sleep",
 	badge_colour = HEX("D5D4D6"),
-	atlas = "seals1",
+	atlas = "seals",
     pos = {x = 5, y = 0},
     experiment = true,
     config = {hands = -1, d_size = -1, trigger = true},
     loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'designed_by', vars = {"NhanBread"}}
         return {vars = {center.ability.seal.hands, center.ability.seal.d_size}}
     end,
-    in_pool = function(self)
-        return false
-    end,
+    -- in_pool = function(self)
+--        return false
+--    end,
     calculate = function(self, card, context)
         local shaymin = false
         for k, v in pairs(G.jokers.cards) do
@@ -138,16 +142,17 @@ local frozen = {
     name = "frozen",
 	key = "frozen",
 	badge_colour = HEX("41F1F1"),
-	atlas = "seals1",
-    pos = {x = 3, y = 0},
+	atlas = "seals",
+    pos = {x = 1, y = 0},
     experiment = true,
     config = {money_mod = 2, status = 1},
     loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'designed_by', vars = {"NhanBread"}}
         return {vars = {center.ability.seal.money_mod}}
     end,
-    in_pool = function(self)
-        return false
-    end,
+    -- in_pool = function(self)
+--        return false
+--    end,
     calculate = function(self, card, context)
         local shaymin = false
         for k, v in pairs(G.jokers.cards) do
