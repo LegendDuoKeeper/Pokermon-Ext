@@ -196,10 +196,10 @@ SMODS.Atlas({
   py = 95
 }):register()
 
--- Load Placeholder seals
+-- Load Seals
 SMODS.Atlas({
-  key = "seals1",
-  path = "seals1.png",
+  key = "seals",
+  path = "seals.png",
   
   px = 71,
   py = 95
@@ -414,4 +414,55 @@ SMODS.Consumable:take_ownership ('poke_metalcoat',
   end,
   },
   true
+)
+-- Code for changing Seel/Dewgong to only add non-statuses
+SMODS.Joker:take_ownership ('poke_seel',
+{
+  calculate = function(self, card, context)
+    if context.before and context.cardarea == G.jokers and G.GAME.current_round.hands_played == 0 and not context.blueprint then
+      local seal_type = 'poke_silver'
+      local temp = pseudorandom('seel_type')
+      local _card = context.scoring_hand[1]
+      if pseudorandom('seel') < G.GAME.probabilities.normal/card.ability.extra.odds then
+        if temp <= 0.1667 then seal_type = 'Red'
+          elseif temp <= 0.3333 then seal_type = 'Blue'
+          elseif temp <= 0.5 then seal_type = 'Gold'
+          elseif temp <= 0.6667 then seal_type = 'Purple'
+          elseif temp <= 0.8333 then seal_type = 'poke_pink_seal'
+        end
+      _card:set_seal(seal_type, true)
+      end
+    end
+    if context.first_hand_drawn and not context.blueprint then
+      local eval = function() return G.GAME.current_round.hands_played == 0 and not G.RESET_JIGGLES end
+      juice_card_until(card, eval, true)
+    end
+    return level_evo(self, card, context, "j_poke_dewgong")
+  end
+},
+true
+)
+
+SMODS.Joker:take_ownership ('poke_dewgong',
+{
+  calculate = function(self, card, context)
+    if context.before and context.cardarea == G.jokers and G.GAME.current_round.hands_played == 0 and not context.blueprint then
+      local seal_type = 'poke_silver'
+      local temp = pseudorandom('dewgong_type')
+      local _card = context.scoring_hand[1]
+      if temp <= 0.1667 then seal_type = 'Red'
+        elseif temp <= 0.3333 then seal_type = 'Blue'
+        elseif temp <= 0.5 then seal_type = 'Gold'
+        elseif temp <= 0.6667 then seal_type = 'Purple'
+        elseif temp <= 0.8333 then seal_type = 'poke_pink_seal'
+      end
+    _card:set_seal(seal_type, true)
+    end
+    if context.first_hand_drawn and not context.blueprint then
+      local eval = function() return G.GAME.current_round.hands_played == 0 and not G.RESET_JIGGLES end
+      juice_card_until(card, eval, true)
+    end
+  end
+},
+true
 )
