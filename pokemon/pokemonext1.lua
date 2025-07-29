@@ -468,7 +468,7 @@ local cutiefly={
 local ribombee={
   name = "ribombee",
   pos = {x = 10, y = 1},
-  config = {extra = {rounds_left = 8, triggered = false}},
+  config = {extra = {rounds_left = 6, triggered = false}},
   loc_vars = function(self, info_queue, center)
     type_tooltip(self, info_queue, center)
     info_queue[#info_queue+1] = G.P_CENTERS.c_poke_ext_honey
@@ -495,7 +495,7 @@ local ribombee={
         local grass = #find_pokemon_type("Grass")
         card.ability.extra.rounds_left = card.ability.extra.rounds_left - (1 + grass)
         if card.ability.extra.rounds_left <= 0 then
-          card.ability.extra.rounds_left = math.max(1, card.ability.extra.rounds_left + 8)
+          card.ability.extra.rounds_left = math.max(1, card.ability.extra.rounds_left + 6)
           if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
             local _card = create_card('Spectral', G.consumeables, nil, nil, nil, nil, 'c_poke_ext_honey')
             _card:add_to_deck()
