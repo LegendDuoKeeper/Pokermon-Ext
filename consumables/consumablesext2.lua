@@ -150,11 +150,11 @@ local nevermeltice = {
     config = {max_highlighted = 2, min_highlighted = 1, extra = {make_tag = true}},
     loc_vars = function(self, info_queue, center)
         type_tooltip(self, info_queue, center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'designed_by', vars = {"DaleWillFail"}}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'designed_by', vars = {"Sestral"}}
         info_queue[#info_queue+1] = {key = 'poke_ext_frozen_seal', set = 'Other'}
     end,
-    pos = { x = 0, y = 0 },
-    atlas = "placeholder",
+    pos = { x = 0, y = 1 },
+    atlas = "Items",
     cost = 3,
     experiment = true,
     unlocked = true,
